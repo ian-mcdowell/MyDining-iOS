@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RnK-wp-nJt">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RnK-wp-nJt" customClass="CartItem" customModule="MyDining" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RnK-wp-nJt" id="hcG-TZ-u1I">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -200,6 +200,14 @@
                             <outlet property="delegate" destination="3Ti-Ag-E3l" id="IeN-gw-STG"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="2zE-1G-kFF">
+                        <barButtonItem key="rightBarButtonItem" image="shopping_cart" id="1gK-O9-b0Y">
+                            <connections>
+                                <segue destination="2OI-1U-S62" kind="presentation" id="eLA-Bx-8qR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTL-VW-1eV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,4 +255,7 @@
     <resources>
         <image name="shopping_cart" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eLA-Bx-8qR"/>
+    </inferredMetricsTieBreakers>
 </document>
