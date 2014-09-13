@@ -6,12 +6,6 @@
 // project.
 
 
-// RKSwipeBetweenViewControllers
-#define COCOAPODS_POD_AVAILABLE_RKSwipeBetweenViewControllers
-#define COCOAPODS_VERSION_MAJOR_RKSwipeBetweenViewControllers 0
-#define COCOAPODS_VERSION_MINOR_RKSwipeBetweenViewControllers 1
-#define COCOAPODS_VERSION_PATCH_RKSwipeBetweenViewControllers 3
-
 // hpple
 #define COCOAPODS_POD_AVAILABLE_hpple
 #define COCOAPODS_VERSION_MAJOR_hpple 0

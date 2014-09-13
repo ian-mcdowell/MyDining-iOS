@@ -10,6 +10,5 @@
 #define MyDining_MyDining_bridging_header_h
 
 #import "TFHpple.h"
-#import "RKSwipeBetweenViewControllers.h"
 
 #endif
