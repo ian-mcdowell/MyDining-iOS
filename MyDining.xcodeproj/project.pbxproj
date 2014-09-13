@@ -22,6 +22,8 @@
 		59708B5F19C3FDA400CAF7C9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B5E19C3FDA400CAF7C9 /* MenuViewController.swift */; };
 		59708B6219C4066900CAF7C9 /* MenuStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B6119C4066900CAF7C9 /* MenuStation.swift */; };
 		59708B6419C40CA500CAF7C9 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B6319C40CA500CAF7C9 /* MenuItem.swift */; };
+		59708B6619C41A1900CAF7C9 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B6519C41A1900CAF7C9 /* MenuItemCell.swift */; };
+		59708B6819C41C1500CAF7C9 /* MenuSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B6719C41C1500CAF7C9 /* MenuSectionHeaderCell.swift */; };
 		EF837367A2C141C4AFBB284B /* libPods-MyDining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		59708B5E19C3FDA400CAF7C9 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		59708B6119C4066900CAF7C9 /* MenuStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuStation.swift; path = Classes/MenuStation.swift; sourceTree = "<group>"; };
 		59708B6319C40CA500CAF7C9 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = Classes/MenuItem.swift; sourceTree = "<group>"; };
+		59708B6519C41A1900CAF7C9 /* MenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItemCell.swift; path = Views/MenuItemCell.swift; sourceTree = "<group>"; };
+		59708B6719C41C1500CAF7C9 /* MenuSectionHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSectionHeaderCell.swift; path = Views/MenuSectionHeaderCell.swift; sourceTree = "<group>"; };
 		E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyDining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -199,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				59708B4C19C3F43000CAF7C9 /* LocationCell.swift */,
+				59708B6519C41A1900CAF7C9 /* MenuItemCell.swift */,
+				59708B6719C41C1500CAF7C9 /* MenuSectionHeaderCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -398,6 +404,8 @@
 				3CB7467819C3E2DA0082032C /* Location.swift in Sources */,
 				59708B6219C4066900CAF7C9 /* MenuStation.swift in Sources */,
 				59708B6419C40CA500CAF7C9 /* MenuItem.swift in Sources */,
+				59708B6619C41A1900CAF7C9 /* MenuItemCell.swift in Sources */,
+				59708B6819C41C1500CAF7C9 /* MenuSectionHeaderCell.swift in Sources */,
 				3C5D779219C3DD4400C02776 /* AppDelegate.swift in Sources */,
 				59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */,
 			);

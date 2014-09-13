@@ -21,6 +21,8 @@ class MenuViewController: UICollectionViewController {
         
         self.stations = Array<MenuStation>()
         
+        self.title = self.location.name;
+        
         self.loadMenu()
 
         // Uncomment the following line to preserve selection between presentations
@@ -103,20 +105,32 @@ class MenuViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        return stations.count
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return stations.count > 0 ? stations[0].items.count : 0
+        return stations[section].items.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as MenuItemCell
     
+        var menuItem = self.stations[indexPath.section].items[indexPath.item];
+        
         // Configure the cell
+        cell.name.text = menuItem.name
     
         return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        var headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as MenuSectionHeaderCell;
+        
+        headerView.sectionName.text = self.stations[indexPath.section].name
+            
+        return headerView;
     }
 
     // MARK: UICollectionViewDelegate
