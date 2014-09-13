@@ -159,7 +159,6 @@
                                                     <connections>
                                                         <outlet property="image" destination="Upj-JV-GaZ" id="0Jx-Y5-znN"/>
                                                         <outlet property="name" destination="qep-ib-hnd" id="Gky-oV-MBd"/>
-                                                        <segue destination="heg-la-AiN" kind="presentation" id="KPu-bE-VJw"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -268,6 +267,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="itemName" destination="39h-27-66B" id="XuD-z5-vK6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha4-j5-wvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -324,7 +326,7 @@
         <!--Navigation Controller-->
         <scene sceneID="aui-r2-j5f">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="heg-la-AiN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ItemSummaryViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="heg-la-AiN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Xm8-Cr-Nlq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
