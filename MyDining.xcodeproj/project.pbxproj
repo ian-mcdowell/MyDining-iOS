@@ -10,6 +10,7 @@
 		3C09672819C4BBD300F31766 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09672719C4BBD300F31766 /* Cart.swift */; };
 		3C09672A19C4BC1800F31766 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09672919C4BC1800F31766 /* Order.swift */; };
 		3C09672C19C4BC4900F31766 /* Condiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09672B19C4BC4900F31766 /* Condiment.swift */; };
+		3C09672E19C4C18F00F31766 /* CondimentSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09672D19C4C18F00F31766 /* CondimentSelectViewController.swift */; };
 		3C5D779219C3DD4400C02776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D779119C3DD4400C02776 /* AppDelegate.swift */; };
 		3C5D779419C3DD4400C02776 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D779319C3DD4400C02776 /* ViewController.swift */; };
 		3C5D779919C3DD4400C02776 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D779819C3DD4400C02776 /* Images.xcassets */; };
@@ -90,6 +91,7 @@
 		3C09672719C4BBD300F31766 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cart.swift; path = Classes/Cart.swift; sourceTree = "<group>"; };
 		3C09672919C4BC1800F31766 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		3C09672B19C4BC4900F31766 /* Condiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Condiment.swift; path = Classes/Condiment.swift; sourceTree = "<group>"; };
+		3C09672D19C4C18F00F31766 /* CondimentSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CondimentSelectViewController.swift; path = ViewControllers/CondimentSelectViewController.swift; sourceTree = "<group>"; };
 		3C5D778C19C3DD4400C02776 /* MyDining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C5D779019C3DD4400C02776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C5D779119C3DD4400C02776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */,
 				59708B5E19C3FDA400CAF7C9 /* MenuViewController.swift */,
 				59231E3119C4B8B1005725FD /* CartViewController.swift */,
+				3C09672D19C4C18F00F31766 /* CondimentSelectViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				59708B6E19C41EAD00CAF7C9 /* Utils.swift in Sources */,
 				3C5D779219C3DD4400C02776 /* AppDelegate.swift in Sources */,
 				59C56F7519C49B2200E65BC0 /* MenuSectionCell.swift in Sources */,
+				3C09672E19C4C18F00F31766 /* CondimentSelectViewController.swift in Sources */,
 				59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,4 +12,6 @@ class Order: NSObject {
     var location: Location!
     var item: MenuItem!
     var condiments = Array<Condiment>()
+    var name: String!
+    var specialRequests: String!
 }

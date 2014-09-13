@@ -156,7 +156,7 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
         var stationNumber = collectionView.tag;
         var items = self.stations[stationNumber]
         
-        NSLog("numberOfItemsInSection: \(stationNumber) = \(items.items.count)")
+        //NSLog("numberOfItemsInSection: \(stationNumber) = \(items.items.count)")
         return items.items.count
     }
 
@@ -166,7 +166,7 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
         var stationNumber = collectionView.tag
         var menuItem = self.stations[stationNumber].items[indexPath.item];
         
-        NSLog("cellForItemAtIndexPath: \(stationNumber) = \(menuItem.name)")
+       // NSLog("cellForItemAtIndexPath: \(stationNumber) = \(menuItem.name)")
         
         // Configure the cell
         cell.name.text = menuItem.name
