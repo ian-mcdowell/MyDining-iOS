@@ -12,7 +12,8 @@ class Location: NSObject {
     
     var name: String!
     var id: Int!
-    
+    var addr1: String!
+    var addr2: String!
     
    
 }

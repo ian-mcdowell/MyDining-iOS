@@ -15,6 +15,10 @@
 		3C5D77A819C3DD4500C02776 /* MyDiningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D77A719C3DD4500C02776 /* MyDiningTests.swift */; };
 		3C96954019C3E5BE0061A02F /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C96953F19C3E5BE0061A02F /* libxml2.2.dylib */; };
 		3CB7467819C3E2DA0082032C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7467719C3E2DA0082032C /* Location.swift */; };
+		59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */; };
+		59708B4619C3ED3E00CAF7C9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59708B4319C3ED3700CAF7C9 /* Alamofire.framework */; };
+		59708B4719C3ED3E00CAF7C9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59708B4319C3ED3700CAF7C9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59708B4D19C3F43000CAF7C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B4C19C3F43000CAF7C9 /* LocationCell.swift */; };
 		EF837367A2C141C4AFBB284B /* libPods-MyDining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +30,42 @@
 			remoteGlobalIDString = 3C5D778B19C3DD4400C02776;
 			remoteInfo = MyDining;
 		};
+		59708B4219C3ED3700CAF7C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59708B3D19C3ED3700CAF7C9 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		59708B4419C3ED3700CAF7C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59708B3D19C3ED3700CAF7C9 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
+		59708B4819C3ED3E00CAF7C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59708B3D19C3ED3700CAF7C9 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		59708B4A19C3ED3E00CAF7C9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				59708B4719C3ED3E00CAF7C9 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2FA3EBD921E141C483D98488 /* Pods-MyDining.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDining.xcconfig"; path = "Pods/Pods-MyDining.xcconfig"; sourceTree = "<group>"; };
@@ -43,6 +82,9 @@
 		3C96953E19C3E5430061A02F /* MyDining-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDining-bridging-header.h"; sourceTree = "<group>"; };
 		3C96953F19C3E5BE0061A02F /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3CB7467719C3E2DA0082032C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Classes/Location.swift; sourceTree = "<group>"; };
+		59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationsViewController.swift; path = ViewControllers/LocationsViewController.swift; sourceTree = "<group>"; };
+		59708B3D19C3ED3700CAF7C9 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		59708B4C19C3F43000CAF7C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationCell.swift; path = Views/LocationCell.swift; sourceTree = "<group>"; };
 		E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyDining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -52,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C96954019C3E5BE0061A02F /* libxml2.2.dylib in Frameworks */,
+				59708B4619C3ED3E00CAF7C9 /* Alamofire.framework in Frameworks */,
 				EF837367A2C141C4AFBB284B /* libPods-MyDining.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +112,7 @@
 		3C5D778319C3DD4400C02776 = {
 			isa = PBXGroup;
 			children = (
+				59708B3D19C3ED3700CAF7C9 /* Alamofire.xcodeproj */,
 				3C96953E19C3E5430061A02F /* MyDining-bridging-header.h */,
 				3C5D778E19C3DD4400C02776 /* MyDining */,
 				3C5D77A419C3DD4500C02776 /* MyDiningTests */,
@@ -90,6 +134,7 @@
 		3C5D778E19C3DD4400C02776 /* MyDining */ = {
 			isa = PBXGroup;
 			children = (
+				59708B4B19C3F40E00CAF7C9 /* Views */,
 				3CB7467619C3E2B10082032C /* Classes */,
 				3C5D779119C3DD4400C02776 /* AppDelegate.swift */,
 				3C5D779319C3DD4400C02776 /* ViewController.swift */,
@@ -97,6 +142,7 @@
 				3C5D779819C3DD4400C02776 /* Images.xcassets */,
 				3C5D779A19C3DD4400C02776 /* LaunchScreen.xib */,
 				3C5D778F19C3DD4400C02776 /* Supporting Files */,
+				59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */,
 			);
 			path = MyDining;
 			sourceTree = "<group>";
@@ -134,6 +180,23 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		59708B3E19C3ED3700CAF7C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59708B4319C3ED3700CAF7C9 /* Alamofire.framework */,
+				59708B4519C3ED3700CAF7C9 /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		59708B4B19C3F40E00CAF7C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				59708B4C19C3F43000CAF7C9 /* LocationCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		99AC9A7664C7473C8ADEC58F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,10 +218,12 @@
 				3C5D778919C3DD4400C02776 /* Frameworks */,
 				3C5D778A19C3DD4400C02776 /* Resources */,
 				59958F9E24B347D9972BCEEC /* Copy Pods Resources */,
+				59708B4A19C3ED3E00CAF7C9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				59708B4919C3ED3E00CAF7C9 /* PBXTargetDependency */,
 			);
 			name = MyDining;
 			productName = MyDining;
@@ -213,6 +278,12 @@
 			mainGroup = 3C5D778319C3DD4400C02776;
 			productRefGroup = 3C5D778D19C3DD4400C02776 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 59708B3E19C3ED3700CAF7C9 /* Products */;
+					ProjectRef = 59708B3D19C3ED3700CAF7C9 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3C5D778B19C3DD4400C02776 /* MyDining */,
@@ -220,6 +291,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		59708B4319C3ED3700CAF7C9 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 59708B4219C3ED3700CAF7C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		59708B4519C3ED3700CAF7C9 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 59708B4419C3ED3700CAF7C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3C5D778A19C3DD4400C02776 /* Resources */ = {
@@ -280,8 +368,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C5D779419C3DD4400C02776 /* ViewController.swift in Sources */,
+				59708B4D19C3F43000CAF7C9 /* LocationCell.swift in Sources */,
 				3CB7467819C3E2DA0082032C /* Location.swift in Sources */,
 				3C5D779219C3DD4400C02776 /* AppDelegate.swift in Sources */,
+				59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +390,11 @@
 			isa = PBXTargetDependency;
 			target = 3C5D778B19C3DD4400C02776 /* MyDining */;
 			targetProxy = 3C5D77A219C3DD4500C02776 /* PBXContainerItemProxy */;
+		};
+		59708B4919C3ED3E00CAF7C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 59708B4819C3ED3E00CAF7C9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
