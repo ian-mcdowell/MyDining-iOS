@@ -15,13 +15,17 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
     
     var stations: Array<MenuStation>!
     var location: Location!
+    var appDelegate: AppDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.stations = Array<MenuStation>()
         
         self.title = self.location.name;
+        
+        self.tableView.registerClass(UITableViewHeaderFooterView.classForCoder(), forHeaderFooterViewReuseIdentifier: "header");
         
         self.loadMenu()
 
@@ -95,10 +99,26 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
     // MARK: UITableViewDataSource
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-        //let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier("header") as MenuSectionHeaderCell
+        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier("header") as UITableViewHeaderFooterView
         
-        //return header
+        var titleLabel = header.contentView.viewWithTag(1) as UILabel?;
+        if (titleLabel == nil) {
+            var backgroundColor = UIColor(red: 255/255, green: 115/255, blue: 125/255, alpha: 1.0);
+            header.contentView.backgroundColor = backgroundColor;
+            titleLabel = UILabel(frame: CGRectMake(10.0, 0.0, 300.0, 40.0))
+            titleLabel!.textColor = UIColor.blackColor();
+            titleLabel!.backgroundColor = UIColor.clearColor();
+            titleLabel!.shadowOffset = CGSizeMake(0.0, 0.0);
+            titleLabel!.tag = 1;
+            titleLabel!.font = UIFont(name: "Helvetica-Neue-Light", size: 18.0);
+            header.contentView.addSubview(titleLabel!)
+        }
+        
+        var sectionTitle = self.stations[section].name
+        
+        titleLabel!.text = sectionTitle;
+        
+        return header
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -150,6 +170,23 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
         
         // Configure the cell
         cell.name.text = menuItem.name
+        cell.image.image = nil;
+        
+        var pre = appDelegate.configuration["uplImagePre"]!
+        var url = "\(pre)\(menuItem.imageName).png";
+        Alamofire.request(.GET, url, parameters: nil, encoding: ParameterEncoding.URL).response { (request, response, data, error) -> Void in
+            if (error != nil) {
+                NSLog("Failed to load image at url \(url)")
+                cell.image.image = nil
+                return;
+            }
+            var image = UIImage(data: data as NSData)
+            cell.image.image = image
+            cell.image.alpha = 0.0
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                cell.image.alpha = 1.0
+            })
+        }
     
         return cell
     }

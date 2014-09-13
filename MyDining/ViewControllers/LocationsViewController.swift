@@ -55,6 +55,20 @@ class LocationsViewController: UITableViewController {
         // find root
         var elements = doc.searchWithXPathQuery("//menu")
         
+        // parse configuration
+        var configurationElement = elements[0] as TFHppleElement
+        var configurationItems = configurationElement.childrenWithTagName("cfg") as Array<TFHppleElement>
+        
+        NSLog("There were \(configurationItems.count) configuration items found");
+        
+        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        for configuration in configurationItems {
+            var key = configuration.objectForKey("k") as String;
+            var val = configuration.objectForKey("v") as String;
+            
+            appDelegate.configuration[key] = val;
+        }
+        
         
         // find location element
         var locationElement: TFHppleElement = elements[1] as TFHppleElement
