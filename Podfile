@@ -4,6 +4,7 @@
 target "MyDining" do
 
 pod 'hpple'
+pod 'RKSwipeBetweenViewControllers'
 
 end
 
