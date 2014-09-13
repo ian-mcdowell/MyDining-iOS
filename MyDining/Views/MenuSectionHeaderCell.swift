@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuSectionHeaderCell: UICollectionReusableView {
+class MenuSectionHeaderCell: UITableViewHeaderFooterView {
     
     @IBOutlet var sectionName: UILabel!
 }

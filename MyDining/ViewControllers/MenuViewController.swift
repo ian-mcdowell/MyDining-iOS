@@ -11,7 +11,7 @@ import Alamofire
 
 let reuseIdentifier = "cell"
 
-class MenuViewController: UICollectionViewController {
+class MenuViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var stations: Array<MenuStation>!
     var location: Location!
@@ -89,9 +89,37 @@ class MenuViewController: UICollectionViewController {
             self.stations.append(st);
         }
         
-        self.collectionView!.reloadData()
+        self.tableView.reloadData()
     }
-
+    
+    // MARK: UITableViewDataSource
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+        //let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier("header") as MenuSectionHeaderCell
+        
+        //return header
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as MenuSectionCell
+        
+        cell.setCollectionViewDelegate(self, dataSource: self);
+        
+        cell.collectionView.tag = indexPath.section;
+        
+        cell.collectionView.reloadData()
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.stations.count
+    }
     /*
     // MARK: - Navigation
 
@@ -104,33 +132,26 @@ class MenuViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return stations.count
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var stationNumber = collectionView.tag;
+        var items = self.stations[stationNumber]
+        
+        NSLog("numberOfItemsInSection: \(stationNumber) = \(items.items.count)")
+        return items.items.count
     }
 
-
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return stations[section].items.count
-    }
-
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as MenuItemCell
     
-        var menuItem = self.stations[indexPath.section].items[indexPath.item];
+        var stationNumber = collectionView.tag
+        var menuItem = self.stations[stationNumber].items[indexPath.item];
+        
+        NSLog("cellForItemAtIndexPath: \(stationNumber) = \(menuItem.name)")
         
         // Configure the cell
         cell.name.text = menuItem.name
     
         return cell
-    }
-    
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
-        var headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as MenuSectionHeaderCell;
-        
-        headerView.sectionName.text = self.stations[indexPath.section].name
-            
-        return headerView;
     }
 
     // MARK: UICollectionViewDelegate
