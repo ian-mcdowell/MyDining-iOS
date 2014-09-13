@@ -18,6 +18,7 @@
 		3C5D77A819C3DD4500C02776 /* MyDiningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D77A719C3DD4500C02776 /* MyDiningTests.swift */; };
 		3C96954019C3E5BE0061A02F /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C96953F19C3E5BE0061A02F /* libxml2.2.dylib */; };
 		3CB7467819C3E2DA0082032C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7467719C3E2DA0082032C /* Location.swift */; };
+		3CEE5FBB19C4F2B1006CD0F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */; };
 		59231E3019C4B70B005725FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59231E2E19C4B70B005725FD /* Main.storyboard */; };
 		59231E3219C4B8B1005725FD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3119C4B8B1005725FD /* CartViewController.swift */; };
 		59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */; };
@@ -105,6 +106,7 @@
 		3C96953E19C3E5430061A02F /* MyDining-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDining-bridging-header.h"; sourceTree = "<group>"; };
 		3C96953F19C3E5BE0061A02F /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3CB7467719C3E2DA0082032C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Classes/Location.swift; sourceTree = "<group>"; };
+		3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		59231E2F19C4B70B005725FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59231E3119C4B8B1005725FD /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartViewController.swift; path = ViewControllers/CartViewController.swift; sourceTree = "<group>"; };
 		59231E3519C4BAE5005725FD /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartItem.swift; path = Views/CartItem.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				59708B5E19C3FDA400CAF7C9 /* MenuViewController.swift */,
 				59231E3119C4B8B1005725FD /* CartViewController.swift */,
 				3C09672F19C4D38800F31766 /* ItemSummaryViewController.swift */,
+				3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -316,11 +319,11 @@
 				TargetAttributes = {
 					3C5D778B19C3DD4400C02776 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 3G5EGFL6JB;
+						DevelopmentTeam = A8DZBD3K9C;
 					};
 					3C5D77A019C3DD4500C02776 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 3G5EGFL6JB;
+						DevelopmentTeam = A8DZBD3K9C;
 						TestTargetID = 3C5D778B19C3DD4400C02776;
 					};
 				};
@@ -426,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CEE5FBB19C4F2B1006CD0F7 /* LoginViewController.swift in Sources */,
 				3C5D779419C3DD4400C02776 /* ViewController.swift in Sources */,
 				59708B5F19C3FDA400CAF7C9 /* MenuViewController.swift in Sources */,
 				59708B4D19C3F43000CAF7C9 /* LocationCell.swift in Sources */,
