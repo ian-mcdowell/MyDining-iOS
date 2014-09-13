@@ -15,5 +15,6 @@ class Location: NSObject {
     var addr1: String!
     var addr2: String!
     
+    var active: Bool!
    
 }

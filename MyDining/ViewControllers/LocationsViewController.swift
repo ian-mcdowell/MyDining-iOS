@@ -11,12 +11,14 @@ import Alamofire
 
 class LocationsViewController: UITableViewController {
     
+    @IBOutlet var tableView: UITableView!
     var locations: Array<Location>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.locations = Array<Location>();
+
         
         self.loadLocations()
 
@@ -70,10 +72,12 @@ class LocationsViewController: UITableViewController {
             loc.addr1 = location.objectForKey("saddr")
             loc.addr2 = location.objectForKey("saddr2")
             
+            loc.active = location.objectForKey("sact") == "1";
+            
             self.locations.append(loc);
         }
         
-        self.tableView.reloadData();
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -95,10 +99,29 @@ class LocationsViewController: UITableViewController {
         cell.locationName.text = location.name
         cell.address1.text = location.addr1
         cell.address2.text = location.addr2
+        
+        if (location.active == false) {
+            cell.backgroundColor = UIColor(white: 0.95, alpha: 1.0);
+            cell.locationName.textColor = UIColor.lightGrayColor()
+            cell.address1.textColor = UIColor.lightGrayColor()
+            cell.address2.textColor = UIColor.lightGrayColor()
+        } else {
+            cell.backgroundColor = UIColor.whiteColor()
+            cell.locationName.textColor = UIColor.blackColor();
+            cell.address1.textColor = UIColor.blackColor()
+            cell.address2.textColor = UIColor.blackColor()
+        }
 
         return cell
     }
     
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        var location = self.locations[indexPath.item];
+        if (location.active == true) {
+            return indexPath
+        }
+        return nil;
+    }
 
     /*
     // Override to support conditional editing of the table view.
