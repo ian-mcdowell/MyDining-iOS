@@ -20,6 +20,7 @@ class ItemSummaryViewController: UITableViewController {
     @IBOutlet var itemCost: UILabel!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -31,8 +32,6 @@ class ItemSummaryViewController: UITableViewController {
         self.imageView.image = nil;
         
         self.loadImage();
-        
-       self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
