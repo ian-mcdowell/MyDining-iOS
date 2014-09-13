@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CartViewController: UITableViewController {
+class CartViewController: UITableViewController, LoginViewControllerDelegate {
     
     var cart: Cart!
     var appDelegate: AppDelegate!
@@ -37,8 +37,19 @@ class CartViewController: UITableViewController {
     
     @IBAction func checkOut(sender: AnyObject) {
         var loginNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController") as UINavigationController;
+        var loginViewController = loginNavController.viewControllers.first as LoginViewController
         
-        self.navigationController!.presentViewController(loginNavController, animated: false, completion: nil);
+        loginViewController.delegate = self
+        
+        self.navigationController!.presentViewController(loginNavController, animated: true, completion: nil);
+    }
+    
+    func loginCancelled() {
+        NSLog("Login cancelled")
+    }
+    
+    func loginComplete() {
+        NSLog("Login complete")
     }
 
     // MARK: - Table view data source
