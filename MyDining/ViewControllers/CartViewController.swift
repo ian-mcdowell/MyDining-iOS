@@ -32,6 +32,12 @@ class CartViewController: UITableViewController {
     @IBAction func close(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil);
     }
+    
+    @IBAction func checkOut(sender: AnyObject) {
+        var loginNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController") as UINavigationController;
+        
+        self.navigationController!.presentViewController(loginNavController, animated: false, completion: nil);
+    }
 
     // MARK: - Table view data source
 
