@@ -14,9 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var configuration: Dictionary<String, String>!
+    var cart: Cart!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.configuration = Dictionary<String, String>()
+        self.cart = Cart()
         // Override point for customization after application launch.
         return true
     }
