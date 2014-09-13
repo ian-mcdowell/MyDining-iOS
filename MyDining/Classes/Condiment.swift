@@ -9,5 +9,9 @@
 import UIKit
 
 class Condiment: NSObject {
-   
+    var name: String!
+    var cost = 0.00
+    var id: Int!
+    
+    
 }
