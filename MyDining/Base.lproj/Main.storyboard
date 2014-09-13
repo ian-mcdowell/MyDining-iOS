@@ -128,6 +128,7 @@
                                         <constraint firstAttribute="centerY" secondItem="pRM-Ky-XYy" secondAttribute="centerY" constant="2" id="fSM-8U-EZw"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="itemCost" destination="pRM-Ky-XYy" id="TlO-5H-79m"/>
                                     <outlet property="itemDescription" destination="X1t-Yp-us2" id="46W-CO-TR7"/>
@@ -147,7 +148,7 @@
                                 <action selector="close:" destination="nv5-2U-iHK" id="GGR-ku-w9y"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Check out" id="PBQ-IB-S5K">
+                        <barButtonItem key="rightBarButtonItem" title="Checkout" id="PBQ-IB-S5K">
                             <connections>
                                 <action selector="checkOut:" destination="nv5-2U-iHK" id="WaU-vg-xfV"/>
                             </connections>
