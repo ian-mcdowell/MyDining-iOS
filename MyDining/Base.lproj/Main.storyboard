@@ -31,7 +31,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLB-R3-nAr">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Address 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLB-R3-nAr">
                                             <rect key="frame" x="8" y="61" width="584" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -88,11 +88,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cartCell" rowHeight="100" id="RnK-wp-nJt" customClass="CartItem" customModule="MyDining" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cartCell" rowHeight="100" id="RnK-wp-nJt" customClass="CartItemCell" customModule="MyDining" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RnK-wp-nJt" id="hcG-TZ-u1I">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GuX-Yt-5gN">
+                                            <rect key="frame" x="8" y="0.0" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="UaV-VP-Qgs"/>
+                                                <constraint firstAttribute="height" constant="100" id="ZQl-2n-47a"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlS-3d-HLB">
+                                            <rect key="frame" x="116" y="8" width="84" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1t-Yp-us2">
+                                            <rect key="frame" x="116" y="37" width="126" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRM-Ky-XYy">
+                                            <rect key="frame" x="517" y="37" width="75" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GuX-Yt-5gN" firstAttribute="leading" secondItem="hcG-TZ-u1I" secondAttribute="leading" constant="8" id="1Oc-UG-WrH"/>
+                                        <constraint firstItem="RlS-3d-HLB" firstAttribute="leading" secondItem="GuX-Yt-5gN" secondAttribute="trailing" constant="8" id="TT7-qx-Tq9"/>
+                                        <constraint firstAttribute="centerY" secondItem="GuX-Yt-5gN" secondAttribute="centerY" id="W2W-5c-b4p"/>
+                                        <constraint firstItem="RlS-3d-HLB" firstAttribute="top" secondItem="hcG-TZ-u1I" secondAttribute="top" constant="8" id="cVf-n4-rHg"/>
+                                        <constraint firstItem="pRM-Ky-XYy" firstAttribute="trailing" secondItem="hcG-TZ-u1I" secondAttribute="trailingMargin" id="dbd-AG-0EW"/>
+                                        <constraint firstAttribute="centerY" secondItem="pRM-Ky-XYy" secondAttribute="centerY" constant="2" id="fSM-8U-EZw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemCost" destination="pRM-Ky-XYy" id="TlO-5H-79m"/>
+                                    <outlet property="itemDescription" destination="X1t-Yp-us2" id="46W-CO-TR7"/>
+                                    <outlet property="itemImage" destination="GuX-Yt-5gN" id="FuH-76-SMO"/>
+                                    <outlet property="itemName" destination="RlS-3d-HLB" id="EZw-b5-PYB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -115,7 +156,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJ9-gz-YaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2185" y="-301"/>
+            <point key="canvasLocation" x="2185" y="-303"/>
         </scene>
         <!--Login-->
         <scene sceneID="w6N-WA-qNg">
@@ -294,8 +335,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Item Info" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SZ-1F-pe3">
-                                                    <rect key="frame" x="109" y="34" width="483" height="107.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Item Info" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SZ-1F-pe3">
+                                                    <rect key="frame" x="109" y="34" width="483" height="108"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
