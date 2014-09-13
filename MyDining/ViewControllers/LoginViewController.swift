@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol LoginViewControllerDelegate {
     func loginComplete();
@@ -50,11 +51,13 @@ class LoginViewController: UIViewController {
             return;
         }
         // start network task to login
-        
+        self.login(emailBox.text, password: passwordBox.text)
     }
     
     func login(username: String, password: String) {
-        
+        var url = "\(Utils.getBaseURL())/qp.dca?nmout=0&dx=123456789"
+        NSLog(url)
+
     }
     
 

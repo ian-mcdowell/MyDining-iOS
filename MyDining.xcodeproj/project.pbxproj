@@ -319,11 +319,11 @@
 				TargetAttributes = {
 					3C5D778B19C3DD4400C02776 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = A8DZBD3K9C;
+						DevelopmentTeam = 3G5EGFL6JB;
 					};
 					3C5D77A019C3DD4500C02776 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = A8DZBD3K9C;
+						DevelopmentTeam = 3G5EGFL6JB;
 						TestTargetID = 3C5D778B19C3DD4400C02776;
 					};
 				};
