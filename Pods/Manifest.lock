@@ -1,0 +1,10 @@
+PODS:
+  - hpple (0.2.0)
+
+DEPENDENCIES:
+  - hpple
+
+SPEC CHECKSUMS:
+  hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
+
+COCOAPODS: 0.33.1
