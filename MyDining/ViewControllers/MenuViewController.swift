@@ -14,6 +14,7 @@ let reuseIdentifier = "cell"
 class MenuViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var stations: Array<MenuStation>!
+    var allCondiments: Dictionary<String, CondimentGroup>!
     var location: Location!
     var appDelegate: AppDelegate!
 
@@ -22,6 +23,7 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
         
         appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.stations = Array<MenuStation>()
+        self.allCondiments = Dictionary<String, CondimentGroup>()
         
         self.title = self.location.name;
         
@@ -91,6 +93,31 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
                 st.items.append(i);
             }
             self.stations.append(st);
+            
+            // parse condiments
+            var condimentsElements: TFHppleElement = elements[1] as TFHppleElement
+            var condimentGroups = condimentsElements.childrenWithTagName("cc") as Array<TFHppleElement>
+            
+            for item in condimentGroups{
+                var i = CondimentGroup()
+                i.name = item.objectForKey("cond")
+                i.id = item.objectForKey("cclass")
+                i.min = item.objectForKey("cmin").toInt()
+                i.max = item.objectForKey("cdisp").toInt()
+                
+                var items = item.childrenWithTagName("cond") as Array<TFHppleElement>
+                for cond in items {
+                    var j = Condiment()
+                    j.name = cond.objectForKey("cname")
+                    j.id = cond.objectForKey("cid").toInt()
+                    if let cost = cond.objectForKey("ccost"){
+                        j.cost = NSString(string: cost).doubleValue
+                    }
+                }
+                self.allCondiments[i.id] = i
+                
+            }
+            
         }
         
         self.tableView.reloadData()
