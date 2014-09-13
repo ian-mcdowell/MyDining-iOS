@@ -167,15 +167,7 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.stations.count
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -216,6 +208,22 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
         }
     
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var stationNumber = collectionView.tag
+        var menuItem = self.stations[stationNumber].items[indexPath.item]
+        
+        var navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ItemSummaryViewController") as UINavigationController
+        var itemSummaryViewController = navController.viewControllers.first as ItemSummaryViewController
+        
+        var order = Order();
+        order.item = menuItem;
+        order.location = location
+        
+        itemSummaryViewController.order = order;
+        
+        self.presentViewController(navController, animated: true, completion: nil);
     }
 
     // MARK: UICollectionViewDelegate

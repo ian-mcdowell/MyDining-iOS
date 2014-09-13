@@ -10,9 +10,14 @@ import UIKit
 
 class ItemSummaryViewController: UITableViewController {
 
+    var order: Order!
+    
+    @IBOutlet var itemName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.itemName.text = order.item.name
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,7 +35,10 @@ class ItemSummaryViewController: UITableViewController {
     }
     
     @IBAction func addToCart(sender: AnyObject) {
+        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.cart.items.append(self.order);
         
+        self.cancel(sender);
     }
 
     /*
