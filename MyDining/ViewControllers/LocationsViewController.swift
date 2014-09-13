@@ -11,7 +11,6 @@ import Alamofire
 
 class LocationsViewController: UITableViewController {
     
-    @IBOutlet var tableView: UITableView!
     var locations: Array<Location>!
 
     override func viewDidLoad() {
@@ -35,7 +34,7 @@ class LocationsViewController: UITableViewController {
     }
     
     func loadLocations() {
-        Alamofire.request(.GET, "https://iastate.webfood.com/xmlstart.dca?dx=123456789&mr=123456", parameters: nil, encoding: ParameterEncoding.URL).responseString { (request: NSURLRequest, response: NSHTTPURLResponse?, data: String?, error: NSError?) -> Void in
+        Alamofire.request(.GET, "https://iastate.webfood.com/xmlstart.dca?dx=12345678&mr=123456", parameters: nil, encoding: ParameterEncoding.URL).responseString { (request: NSURLRequest, response: NSHTTPURLResponse?, data: String?, error: NSError?) -> Void in
             if (error != nil) {
                 // something bad happened!!
                 NSLog("Error loading locations. \(error?.localizedDescription).");
@@ -158,14 +157,16 @@ class LocationsViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        var destinationViewController = segue.destinationViewController as MenuViewController
+        destinationViewController.location = self.locations[self.tableView.indexPathForSelectedRow()!.item]
     }
-    */
+    
 
 }

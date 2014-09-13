@@ -9,5 +9,11 @@
 import UIKit
 
 class MenuStation: NSObject {
+    
+    var name: String!
+    var id:Int!
+    var items = Array<MenuItem>()
+    
+    
    
 }

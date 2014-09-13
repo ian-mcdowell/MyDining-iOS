@@ -21,6 +21,7 @@
 		59708B5B19C3F79D00CAF7C9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59708B5519C3F79000CAF7C9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59708B5F19C3FDA400CAF7C9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B5E19C3FDA400CAF7C9 /* MenuViewController.swift */; };
 		59708B6219C4066900CAF7C9 /* MenuStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B6119C4066900CAF7C9 /* MenuStation.swift */; };
+		59708B6419C40CA500CAF7C9 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B6319C40CA500CAF7C9 /* MenuItem.swift */; };
 		EF837367A2C141C4AFBB284B /* libPods-MyDining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		59708B4F19C3F79000CAF7C9 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		59708B5E19C3FDA400CAF7C9 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		59708B6119C4066900CAF7C9 /* MenuStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuStation.swift; path = Classes/MenuStation.swift; sourceTree = "<group>"; };
+		59708B6319C40CA500CAF7C9 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = Classes/MenuItem.swift; sourceTree = "<group>"; };
 		E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyDining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 			children = (
 				3CB7467719C3E2DA0082032C /* Location.swift */,
 				59708B6119C4066900CAF7C9 /* MenuStation.swift */,
+				59708B6319C40CA500CAF7C9 /* MenuItem.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				59708B4D19C3F43000CAF7C9 /* LocationCell.swift in Sources */,
 				3CB7467819C3E2DA0082032C /* Location.swift in Sources */,
 				59708B6219C4066900CAF7C9 /* MenuStation.swift in Sources */,
+				59708B6419C40CA500CAF7C9 /* MenuItem.swift in Sources */,
 				3C5D779219C3DD4400C02776 /* AppDelegate.swift in Sources */,
 				59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */,
 			);
