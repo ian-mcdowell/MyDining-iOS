@@ -7,22 +7,32 @@
 //
 
 import UIKit
+import Alamofire
 
 class ItemSummaryViewController: UITableViewController {
 
     var order: Order!
+    var appDelegate: AppDelegate!
     
     @IBOutlet var itemName: UILabel!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var itemInfo: UILabel!
+    @IBOutlet var itemCost: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
         self.itemName.text = order.item.name
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.itemInfo.text = order.item.info;
+        self.itemCost.text = NSString(format: "Price: $%.02f",self.order.item.cost)
+        
+        self.imageView.image = nil;
+        
+        self.loadImage();
+        
+       self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +49,25 @@ class ItemSummaryViewController: UITableViewController {
         appDelegate.cart.items.append(self.order);
         
         self.cancel(sender);
+    }
+    
+    func loadImage(){
+        
+        var pre = appDelegate.configuration["uplImagePre"]!
+        var url = "\(pre)\(self.order.item.imageName).png";
+        Alamofire.request(.GET, url, parameters: nil, encoding: ParameterEncoding.URL).response { (request, response, data, error) -> Void in
+        if (error != nil) {
+        NSLog("Failed to load image at url \(url)")
+        self.imageView.image = nil
+        return;
+        }
+        var image = UIImage(data: data as NSData)
+        self.imageView.image = image
+        self.imageView.alpha = 0.0
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.imageView.alpha = 1.0
+        })
+        }
     }
 
     /*
