@@ -37,7 +37,7 @@ class MenuViewController: UICollectionViewController {
     }
     
     func loadMenu() {
-        Alamofire.request(.GET, "https://iastate.webfood.com/xmlstoremenu.dca?dx=123456789&s=\(location.id)&op=0", parameters: nil, encoding: ParameterEncoding.URL).responseString { (request: NSURLRequest, response: NSHTTPURLResponse?, data: String?, error: NSError?) -> Void in
+        Alamofire.request(.GET, "\(Utils.getBaseURL())/xmlstoremenu.dca?dx=123456789&s=\(location.id)&op=0", parameters: nil, encoding: ParameterEncoding.URL).responseString { (request: NSURLRequest, response: NSHTTPURLResponse?, data: String?, error: NSError?) -> Void in
             if (error != nil) {
                 // something bad happened!!
                 NSLog("Error loading menu. \(error?.localizedDescription).");

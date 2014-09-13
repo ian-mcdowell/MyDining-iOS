@@ -34,7 +34,7 @@ class LocationsViewController: UITableViewController {
     }
     
     func loadLocations() {
-        Alamofire.request(.GET, "https://iastate.webfood.com/xmlstart.dca?dx=12345678&mr=123456", parameters: nil, encoding: ParameterEncoding.URL).responseString { (request: NSURLRequest, response: NSHTTPURLResponse?, data: String?, error: NSError?) -> Void in
+        Alamofire.request(.GET, "\(Utils.getBaseURL())/xmlstart.dca?dx=12345678&mr=123456", parameters: nil, encoding: ParameterEncoding.URL).responseString { (request: NSURLRequest, response: NSHTTPURLResponse?, data: String?, error: NSError?) -> Void in
             if (error != nil) {
                 // something bad happened!!
                 NSLog("Error loading locations. \(error?.localizedDescription).");
