@@ -18,6 +18,8 @@ class ItemSummaryViewController: UITableViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var itemInfo: UILabel!
     @IBOutlet var itemCost: UILabel!
+    @IBOutlet var studentsName: UITextField!
+    @IBOutlet var specialRequests: UITextField!
     
     override func viewDidLoad() {
         
@@ -44,6 +46,10 @@ class ItemSummaryViewController: UITableViewController {
     }
     
     @IBAction func addToCart(sender: AnyObject) {
+        // add info user enterred
+        self.order.name = self.studentsName.text;
+        self.order.specialRequests = self.specialRequests.text;
+        
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         appDelegate.cart.items.append(self.order);
         

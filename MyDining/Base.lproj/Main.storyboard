@@ -296,19 +296,19 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vS-ed-9dW">
-                                                    <rect key="frame" x="8" y="111" width="93" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="De3-vA-Ame">
-                                                    <rect key="frame" x="8" y="10" width="93" height="93"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="De3-vA-Ame">
+                                                    <rect key="frame" x="8" y="29" width="93" height="93"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="93" id="2eF-e7-cvT"/>
                                                         <constraint firstAttribute="width" constant="93" id="a6e-0v-7Uh"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vS-ed-9dW">
+                                                    <rect key="frame" x="8" y="126" width="93" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="39h-27-66B" secondAttribute="trailing" constant="8" id="BG5-ZV-xwd"/>
@@ -316,11 +316,20 @@
                                                 <constraint firstItem="39h-27-66B" firstAttribute="top" secondItem="dHg-cv-N6L" secondAttribute="top" constant="10" id="F9b-ji-LX7"/>
                                                 <constraint firstAttribute="trailing" secondItem="2SZ-1F-pe3" secondAttribute="trailing" constant="8" id="FYZ-lK-4Ek"/>
                                                 <constraint firstAttribute="centerY" secondItem="De3-vA-Ame" secondAttribute="centerY" constant="-0.5" id="JY5-iO-VmW"/>
+                                                <constraint firstItem="1vS-ed-9dW" firstAttribute="top" secondItem="De3-vA-Ame" secondAttribute="bottom" constant="4" id="VEO-na-hI0"/>
                                                 <constraint firstItem="2SZ-1F-pe3" firstAttribute="leading" secondItem="De3-vA-Ame" secondAttribute="trailing" constant="8" id="VkV-3p-MQ0"/>
                                                 <constraint firstItem="De3-vA-Ame" firstAttribute="leading" secondItem="dHg-cv-N6L" secondAttribute="leading" constant="8" id="XsO-9z-mPI"/>
+                                                <constraint firstAttribute="bottom" secondItem="1vS-ed-9dW" secondAttribute="bottom" constant="2.5" id="bKd-X3-FYk"/>
+                                                <constraint firstItem="1vS-ed-9dW" firstAttribute="leading" secondItem="dHg-cv-N6L" secondAttribute="leading" constant="8" id="jlD-2i-OCw"/>
                                                 <constraint firstItem="39h-27-66B" firstAttribute="leading" secondItem="De3-vA-Ame" secondAttribute="trailing" constant="8" id="qcy-3z-4eb"/>
                                                 <constraint firstItem="2SZ-1F-pe3" firstAttribute="top" secondItem="39h-27-66B" secondAttribute="bottom" constant="1" id="rRv-mG-4sP"/>
+                                                <constraint firstItem="1vS-ed-9dW" firstAttribute="centerX" secondItem="De3-vA-Ame" secondAttribute="centerX" id="uIH-6k-l64"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="jlD-2i-OCw"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cYw-YR-VpQ">
@@ -329,6 +338,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZYg-F6-TjH">
+                                                    <rect key="frame" x="13" y="7" width="187" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="58x-UE-j7g">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="58x-UE-j7g" id="QQS-1Q-iVq">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Special Requests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePZ-GU-5YZ">
                                                     <rect key="frame" x="13" y="7" width="187" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -352,7 +374,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add to cart" id="FfI-s3-qLs">
                             <connections>
-                                <action selector="addToCart:" destination="I2L-qS-OTK" id="eUI-fy-XAw"/>
+                                <action selector="addToCart:" destination="I2L-qS-OTK" id="Nwj-sJ-qEb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -361,6 +383,8 @@
                         <outlet property="itemCost" destination="1vS-ed-9dW" id="2Zr-Pv-fIO"/>
                         <outlet property="itemInfo" destination="2SZ-1F-pe3" id="Dr3-ra-YGP"/>
                         <outlet property="itemName" destination="39h-27-66B" id="XuD-z5-vK6"/>
+                        <outlet property="specialRequests" destination="ePZ-GU-5YZ" id="a3H-ad-Pn5"/>
+                        <outlet property="studentsName" destination="ZYg-F6-TjH" id="PcL-XX-DkZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha4-j5-wvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
