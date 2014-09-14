@@ -474,7 +474,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="MRh-pl-epb" kind="show" id="VdK-ns-pKK"/>
+                                            <segue destination="g4U-5z-XDX" kind="show" id="ybq-8E-nKG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="cYw-YR-VpQ">
@@ -542,31 +542,24 @@
             </objects>
             <point key="canvasLocation" x="3151" y="358"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="RBt-go-LUn">
+        <!--Condiments Picker View Controller-->
+        <scene sceneID="MgU-Yu-MUN">
             <objects>
-                <tableViewController id="MRh-pl-epb" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="RJo-nv-QGA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <viewController id="g4U-5z-XDX" customClass="CondimentsPickerViewController" customModule="MyDining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OA4-I9-Y1I"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ozs-5s-s85"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7MQ-xv-Fo1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1DJ-MT-EEa">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1DJ-MT-EEa" id="pq5-nB-Nnr">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="MRh-pl-epb" id="U28-Xl-aBl"/>
-                            <outlet property="delegate" destination="MRh-pl-epb" id="A7X-g9-APZ"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aVB-P8-Gg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Va-I9-XpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3815" y="359"/>
+            <point key="canvasLocation" x="3808" y="358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XY3-oX-Zdd">

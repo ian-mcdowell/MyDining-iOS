@@ -137,7 +137,7 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
         
         var titleLabel = header.contentView.viewWithTag(1) as UILabel?;
         if (titleLabel == nil) {
-            var backgroundColor = UIColor(red: 255/255, green: 115/255, blue: 125/255, alpha: 1.0);
+            var backgroundColor = UIColor(red: 255/255, green: 115/255, blue: 125/255, alpha: 0.5);
             header.contentView.backgroundColor = backgroundColor;
             titleLabel = UILabel(frame: CGRectMake(10.0, 0.0, 300.0, 40.0))
             titleLabel!.textColor = UIColor.blackColor();
