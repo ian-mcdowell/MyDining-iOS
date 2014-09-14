@@ -25,6 +25,7 @@
 		3CEE5FC119C50C0B006CD0F7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FC019C50C0B006CD0F7 /* Account.swift */; };
 		59231E3019C4B70B005725FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59231E2E19C4B70B005725FD /* Main.storyboard */; };
 		59231E3219C4B8B1005725FD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3119C4B8B1005725FD /* CartViewController.swift */; };
+		592CFBB919C5374F00A8ECA6 /* CondimentsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592CFBB819C5374F00A8ECA6 /* CondimentsPickerViewController.swift */; };
 		59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */; };
 		59708B4D19C3F43000CAF7C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B4C19C3F43000CAF7C9 /* LocationCell.swift */; };
 		59708B5A19C3F79D00CAF7C9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59708B5519C3F79000CAF7C9 /* Alamofire.framework */; };
@@ -47,6 +48,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3C5D778B19C3DD4400C02776;
 			remoteInfo = MyDining;
+		};
+		592CFBB619C532E800A8ECA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 592CFBB119C532E800A8ECA6 /* UIScrollSlidingPages.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9F70248616DBF6650003B5FA;
+			remoteInfo = UIScrollSlidingPages;
 		};
 		59708B5419C3F79000CAF7C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -117,6 +125,8 @@
 		59231E2F19C4B70B005725FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59231E3119C4B8B1005725FD /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartViewController.swift; path = ViewControllers/CartViewController.swift; sourceTree = "<group>"; };
 		59231E3519C4BAE5005725FD /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartItemCell.swift; path = Views/CartItemCell.swift; sourceTree = "<group>"; };
+		592CFBB119C532E800A8ECA6 /* UIScrollSlidingPages.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIScrollSlidingPages.xcodeproj; path = UIScrollSlidingPages/UIScrollSlidingPages.xcodeproj; sourceTree = "<group>"; };
+		592CFBB819C5374F00A8ECA6 /* CondimentsPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CondimentsPickerViewController.swift; path = ViewControllers/CondimentsPickerViewController.swift; sourceTree = "<group>"; };
 		59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationsViewController.swift; path = ViewControllers/LocationsViewController.swift; sourceTree = "<group>"; };
 		59708B4C19C3F43000CAF7C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationCell.swift; path = Views/LocationCell.swift; sourceTree = "<group>"; };
 		59708B4F19C3F79000CAF7C9 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -155,6 +165,7 @@
 		3C5D778319C3DD4400C02776 = {
 			isa = PBXGroup;
 			children = (
+				592CFBB119C532E800A8ECA6 /* UIScrollSlidingPages.xcodeproj */,
 				59708B4F19C3F79000CAF7C9 /* Alamofire.xcodeproj */,
 				3C96953E19C3E5430061A02F /* MyDining-bridging-header.h */,
 				3C5D778E19C3DD4400C02776 /* MyDining */,
@@ -233,6 +244,14 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		592CFBB219C532E800A8ECA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				592CFBB719C532E800A8ECA6 /* UIScrollSlidingPages.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		59708B4B19C3F40E00CAF7C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +280,7 @@
 				59231E3119C4B8B1005725FD /* CartViewController.swift */,
 				3C09672F19C4D38800F31766 /* ItemSummaryViewController.swift */,
 				3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */,
-				293D0FEC19C52F0A00AC4E5A /* CheckOutViewController.swift */,
+				592CFBB819C5374F00A8ECA6 /* CondimentsPickerViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -354,6 +373,10 @@
 					ProductGroup = 59708B5019C3F79000CAF7C9 /* Products */;
 					ProjectRef = 59708B4F19C3F79000CAF7C9 /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = 592CFBB219C532E800A8ECA6 /* Products */;
+					ProjectRef = 592CFBB119C532E800A8ECA6 /* UIScrollSlidingPages.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -364,6 +387,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		592CFBB719C532E800A8ECA6 /* UIScrollSlidingPages.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = UIScrollSlidingPages.app;
+			remoteRef = 592CFBB619C532E800A8ECA6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		59708B5519C3F79000CAF7C9 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -446,6 +476,7 @@
 				3C5D779419C3DD4400C02776 /* ViewController.swift in Sources */,
 				59708B5F19C3FDA400CAF7C9 /* MenuViewController.swift in Sources */,
 				59708B4D19C3F43000CAF7C9 /* LocationCell.swift in Sources */,
+				592CFBB919C5374F00A8ECA6 /* CondimentsPickerViewController.swift in Sources */,
 				3CEE5FC119C50C0B006CD0F7 /* Account.swift in Sources */,
 				3C09672819C4BBD300F31766 /* Cart.swift in Sources */,
 				3CB7467819C3E2DA0082032C /* Location.swift in Sources */,
