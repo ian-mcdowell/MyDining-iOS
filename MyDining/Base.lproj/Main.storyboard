@@ -253,7 +253,45 @@
                     <view key="view" contentMode="scaleToFill" id="WNX-am-6Nm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGx-4k-c2r">
+                                <rect key="frame" x="0.0" y="96" width="600" height="467"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zo1-Yf-Alq">
+                                        <rect key="frame" x="0.0" y="57" width="600" height="162"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="432352194.34745198">
+                                            <!--2014-09-14 01:49:54 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pickup Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HR1-jm-7dc">
+                                        <rect key="frame" x="8" y="8" width="584" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment Method:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbQ-51-gwM">
+                                        <rect key="frame" x="8" y="227" width="584" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULD-Rd-9nC">
+                                        <rect key="frame" x="0.0" y="276" width="600" height="162"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Zo1-Yf-Alq" secondAttribute="trailing" id="2Fv-VM-uU3"/>
+                                    <constraint firstItem="Zo1-Yf-Alq" firstAttribute="leading" secondItem="TGx-4k-c2r" secondAttribute="leadingMargin" constant="-8" id="uRD-nN-pGN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="TGx-4k-c2r" firstAttribute="leading" secondItem="WNX-am-6Nm" secondAttribute="leading" id="OJQ-fB-Mh5"/>
+                            <constraint firstAttribute="trailing" secondItem="TGx-4k-c2r" secondAttribute="trailing" id="jea-dY-PPt"/>
+                            <constraint firstAttribute="centerYWithinMargins" secondItem="TGx-4k-c2r" secondAttribute="centerYWithinMargins" constant="-21" id="sqH-Ct-d1h"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Checkout" id="7eL-RA-xit">
                         <barButtonItem key="rightBarButtonItem" title="Complete" id="cND-vd-vMt"/>
