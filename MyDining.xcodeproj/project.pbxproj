@@ -23,6 +23,7 @@
 		3CEE5FC119C50C0B006CD0F7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FC019C50C0B006CD0F7 /* Account.swift */; };
 		59231E3019C4B70B005725FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59231E2E19C4B70B005725FD /* Main.storyboard */; };
 		59231E3219C4B8B1005725FD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3119C4B8B1005725FD /* CartViewController.swift */; };
+		596BCE5319C508BE0089843C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */; };
 		59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */; };
 		59708B4D19C3F43000CAF7C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B4C19C3F43000CAF7C9 /* LocationCell.swift */; };
 		59708B5A19C3F79D00CAF7C9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59708B5519C3F79000CAF7C9 /* Alamofire.framework */; };
@@ -34,6 +35,7 @@
 		59708B6B19C41E7D00CAF7C9 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 59708B6919C41E7D00CAF7C9 /* config.json */; };
 		59708B6E19C41EAD00CAF7C9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B6D19C41EAD00CAF7C9 /* Utils.swift */; };
 		5991352F19C4E21900D47974 /* CondimentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991352E19C4E21900D47974 /* CondimentGroup.swift */; };
+		59AE68A919C4F57C00370531 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3519C4BAE5005725FD /* CartItemCell.swift */; };
 		59C56F7519C49B2200E65BC0 /* MenuSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C56F7419C49B2200E65BC0 /* MenuSectionCell.swift */; };
 		EF837367A2C141C4AFBB284B /* libPods-MyDining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */; };
 /* End PBXBuildFile section */
@@ -113,7 +115,7 @@
 		3CEE5FC019C50C0B006CD0F7 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Classes/Account.swift; sourceTree = "<group>"; };
 		59231E2F19C4B70B005725FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59231E3119C4B8B1005725FD /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartViewController.swift; path = ViewControllers/CartViewController.swift; sourceTree = "<group>"; };
-		59231E3519C4BAE5005725FD /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartItem.swift; path = Views/CartItem.swift; sourceTree = "<group>"; };
+		59231E3519C4BAE5005725FD /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartItemCell.swift; path = Views/CartItemCell.swift; sourceTree = "<group>"; };
 		59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationsViewController.swift; path = ViewControllers/LocationsViewController.swift; sourceTree = "<group>"; };
 		59708B4C19C3F43000CAF7C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationCell.swift; path = Views/LocationCell.swift; sourceTree = "<group>"; };
 		59708B4F19C3F79000CAF7C9 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -236,7 +238,7 @@
 				59708B4C19C3F43000CAF7C9 /* LocationCell.swift */,
 				59708B6519C41A1900CAF7C9 /* MenuItemCell.swift */,
 				59C56F7419C49B2200E65BC0 /* MenuSectionCell.swift */,
-				59231E3519C4BAE5005725FD /* CartItem.swift */,
+				59231E3519C4BAE5005725FD /* CartItemCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";

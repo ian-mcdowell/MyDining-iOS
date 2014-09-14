@@ -7,21 +7,24 @@
 //
 
 import UIKit
+import Alamofire
 
 class CartViewController: UITableViewController, LoginViewControllerDelegate {
     
     var cart: Cart!
+    var appDelegate: AppDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.cart = appDelegate.cart
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,12 +66,32 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cartCell", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("cartCell", forIndexPath: indexPath) as CartItemCell
+        
+        var cartItem = self.cart.items[indexPath.item]
+        cell.itemName.text = cartItem.item.name
+        cell.itemCost.text = "\(cartItem.item.cost)"
+        
+        var pre = appDelegate.configuration["uplImagePre"]!
+        NSLog("\(cartItem.item.imageName)")
+        var url = "\(pre)\(cartItem.item.imageName).png";
+        Alamofire.request(.GET, url, parameters: nil, encoding: ParameterEncoding.URL).response { (request, response, data, error) -> Void in
+            if (error != nil) {
+                NSLog("Failed to load image at url \(url)")
+                cell.itemImage.image = nil
+                return;
+            }
+            var image = UIImage(data: data as NSData)
+            cell.itemImage.image = image
+            cell.itemImage.alpha = 0.0
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                cell.itemImage.alpha = 1.0
+            })
+        }
 
         return cell
     }
+    
 
 
     /*
@@ -79,17 +102,17 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
+            self.cart.items.removeAtIndex(indexPath.item)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
