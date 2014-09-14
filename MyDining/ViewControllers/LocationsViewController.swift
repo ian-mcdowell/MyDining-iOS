@@ -147,7 +147,20 @@ return otherCell;
         var location = self.locations[indexPath.item];
         
         cell.locationName.text = location.name
-        //cell.locationHours.text =
+        
+        var calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        var comps = calendar.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: NSDate())
+        var todaysSchedule = location.schedule![comps.weekday-1]
+        if (todaysSchedule != nil) {
+            var formatter = NSDateFormatter()
+            formatter.dateFormat = "hh:mm aa"
+            var startDate = formatter.stringFromDate(todaysSchedule!.0)
+            var endDate = formatter.stringFromDate(todaysSchedule!.1)
+            cell.locationHours.text = "\(startDate) - \(endDate)"
+        } else {
+            cell.locationHours.text = "Closed today"
+        }
+
         
         if (location.active == false) {
             cell.backgroundColor = UIColor(white: 0.95, alpha: 1.0);
