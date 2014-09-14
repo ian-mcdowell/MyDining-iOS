@@ -115,7 +115,10 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
                 i.info = item.objectForKey("ifdesc");
                 
                 // get condiments for each item
-                var condimentStr = item.objectForKey("icond") as NSString
+                var condimentStr = item.objectForKey("icond")
+                if (condimentStr != nil) {
+                    var cstr = condimentStr as NSString
+                }
                 
                 
                 st.items.append(i);
