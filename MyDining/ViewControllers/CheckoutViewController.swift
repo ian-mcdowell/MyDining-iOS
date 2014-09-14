@@ -215,20 +215,23 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
         
         if (!Utils.isDebug()) {
         
-        Networking.post(url, data: params) { (data, error) -> Void in
-            if (error != nil) {
-                NSLog("Error loading payment methods: \(error?.localizedDescription)")
-                return
+            Networking.post(url, data: params) { (data, error) -> Void in
+                if (error != nil) {
+                    NSLog("Error loading payment methods: \(error?.localizedDescription)")
+                    return
+                }
+                // 300|OK|778530|1.00|0.00|0.00|0|0.00|1.00|0.00|0.00|0.00
+                NSLog(data!)
+            
+            
+                self.showOrderComplete("12345678", date: self.timePicker.date, order: item)
+            
+            
             }
-            // 300|OK|778530|1.00|0.00|0.00|0|0.00|1.00|0.00|0.00|0.00
-            NSLog(data!)
             
-            
-            self.showOrderComplete("", date: self.timePicker.date, order: item)
-            
-            
-        }
-            
+        } else {
+            //debug mode
+            self.showOrderComplete("123456", date: self.timePicker.date, order: item);
         }
     }
     

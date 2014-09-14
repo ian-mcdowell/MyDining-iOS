@@ -20,6 +20,7 @@ class OrderProcessedController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.processingNumber.text = "Processing Number: \(number)"
         
         var formatter = NSDateFormatter()

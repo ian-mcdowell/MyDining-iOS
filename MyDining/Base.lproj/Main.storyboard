@@ -566,6 +566,11 @@
                             <constraint firstItem="1md-Pa-QGP" firstAttribute="top" secondItem="XSg-XM-2KJ" secondAttribute="bottom" constant="22" id="nfV-6n-xu7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="location" destination="1md-Pa-QGP" id="5x8-7I-Mny"/>
+                        <outlet property="pickupTime" destination="rZx-A8-lHr" id="gRE-FS-Dnu"/>
+                        <outlet property="processingNumber" destination="pMc-QZ-Pst" id="wWP-LR-IzB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bd5-Jc-63J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
