@@ -9,10 +9,11 @@
 import UIKit
 import Alamofire
 
-class CartViewController: UITableViewController, LoginViewControllerDelegate {
+class CartViewController: UIViewController, LoginViewControllerDelegate {
     
     var cart: Cart!
     var appDelegate: AppDelegate!
+    @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,17 +70,17 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return cart.items.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cartCell", forIndexPath: indexPath) as CartItemCell
         
         var cartItem = self.cart.items[indexPath.item]
@@ -119,7 +120,7 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
 
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             self.cart.items.removeAtIndex(indexPath.item)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
