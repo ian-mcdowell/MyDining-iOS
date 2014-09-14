@@ -84,7 +84,8 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
         
         var cartItem = self.cart.items[indexPath.item]
         cell.itemName.text = cartItem.item.name
-        cell.itemCost.text = "\(cartItem.item.cost)"
+        cell.itemDescription.text = cartItem.item.info
+        cell.itemCost.text = NSString(format:"Price: $%.02f", cartItem.item.cost);
         
         var pre = appDelegate.configuration["uplImagePre"]!
         NSLog("\(cartItem.item.imageName)")
