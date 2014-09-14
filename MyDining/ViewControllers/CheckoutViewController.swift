@@ -38,8 +38,13 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func processOrder(sender: AnyObject){
-        self.performSegueWithIdentifier("orderComplete", sender: self)
+    @IBAction func processOrder(sender: AnyObject) {
+        // get selected values of pickers
+        var orderDate = timePicker.date
+        
+        var paymentMethod = self.paymentMethods[pickerView.selectedRowInComponent(0)]
+        
+        self.checkoutOrder(orderDate, paymentMethod: paymentMethod)
 
     }
     
@@ -169,6 +174,12 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
                 return
             }
             if (data!.rangeOfString("380|OK|") == nil) {
+                if (data!.rangeOfString("380.01") != nil) {
+                    var alert = UIAlertView(title: "Oh no!", message: "It seems you have not added any payment options for this order type. You can add those online.", delegate: self, cancelButtonTitle: "Okay")
+                    alert.show();
+                    self.navigationController!.popViewControllerAnimated(true);
+                    return;
+                }
                 self.showErrorLoading()
                 return;
             }
@@ -182,6 +193,7 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
                 var paymentMethod = PaymentMethod()
                 paymentMethod.id = (paymentMethods[i+1] as String).toInt()!
                 paymentMethod.name = paymentMethods[i+2]
+                paymentMethod.tender = paymentMethods[i+4]
                 paymentMethod.info = paymentMethods[i+5]
                 self.paymentMethods.append(paymentMethod);
             }
@@ -191,9 +203,49 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    func checkoutOrder(date: NSDate, paymentMethod: PaymentMethod) {
+        var item = cart.items[0]
+        
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMdd~HHmm"
+        var dateTimeString = formatter.stringFromDate(self.timePicker.date)
+        
+        var url = "\(Utils.getBaseURL())/qp.dca?nmout=1&dx=12345678"
+        var params = "oCheckoutOrder~\(uniqueID!)~\(auth)~\(item.location.id)~0~\(dateTimeString)~\(paymentMethod.id)~\(paymentMethod.tender)~~~~1~1~\(item.stringify())";
+        
+        if (!Utils.isDebug()) {
+        
+        Networking.post(url, data: params) { (data, error) -> Void in
+            if (error != nil) {
+                NSLog("Error loading payment methods: \(error?.localizedDescription)")
+                return
+            }
+            // 300|OK|778530|1.00|0.00|0.00|0|0.00|1.00|0.00|0.00|0.00
+            NSLog(data!)
+            
+            
+            self.showOrderComplete("", date: self.timePicker.date, order: item)
+            
+            
+        }
+            
+        }
+    }
+    
+    func showOrderComplete(confirmationNumber: String, date: NSDate!, order: Order) {
+        var orderProcessedViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("OrderProcessedViewController") as OrderProcessedController
+        
+        orderProcessedViewController.number = confirmationNumber
+        orderProcessedViewController.time = date;
+        orderProcessedViewController.pickupLocation = order.location.name
+        
+        self.presentViewController(orderProcessedViewController, animated: false, completion: nil)
+    }
+    
     func showErrorLoading() {
         var alert = UIAlertView(title: "Error", message: "Failed to load vital information... :(", delegate: self, cancelButtonTitle: "OK")
         alert.show()
+        self.navigationController!.popViewControllerAnimated(true);
     }
     
     

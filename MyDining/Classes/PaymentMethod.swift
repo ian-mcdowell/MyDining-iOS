@@ -10,6 +10,7 @@ import UIKit
 
 class PaymentMethod: NSObject {
     var name: String!
+    var tender: String!
     var id: Int!
     var info: String!
 }

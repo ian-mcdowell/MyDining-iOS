@@ -15,6 +15,12 @@ class Utils {
         return baseURL as String!
     }
     
+    class func isDebug() -> Bool {
+        var config = getConfiguration()
+        var baseURL: AnyObject? = config["debugMode"]
+        return baseURL as Bool!
+    }
+    
     class func getConfiguration() -> Dictionary<String, AnyObject> {
         var filePath = NSBundle.mainBundle().pathForResource("config", ofType: "json");
         var data = NSData(contentsOfFile: filePath!);

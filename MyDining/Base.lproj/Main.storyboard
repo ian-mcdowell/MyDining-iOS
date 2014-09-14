@@ -503,7 +503,6 @@
                     <connections>
                         <outlet property="pickerView" destination="98U-vr-bsx" id="ksX-Mw-GjH"/>
                         <outlet property="timePicker" destination="zBM-iI-NaO" id="QHc-DZ-4rI"/>
-                        <segue destination="QMg-9B-s3u" kind="show" identifier="orderComplete" id="onE-j5-RkV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbu-2Y-BYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -513,7 +512,7 @@
         <!--Order Processed Controller-->
         <scene sceneID="W9r-0y-l44">
             <objects>
-                <viewController id="QMg-9B-s3u" customClass="OrderProcessedController" customModule="MyDining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderProcessedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QMg-9B-s3u" customClass="OrderProcessedController" customModule="MyDining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JEM-UP-UrX"/>
                         <viewControllerLayoutGuide type="bottom" id="Ge7-e5-hw6"/>
