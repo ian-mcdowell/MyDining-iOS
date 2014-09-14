@@ -105,23 +105,34 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
             
             var stationItems = station.childrenWithTagName("item") as Array<TFHppleElement>
             for item in stationItems {
-                var i = MenuItem();
+                var menuItem = MenuItem();
                 
                 // parse each item info
-                i.name = item.objectForKey("idesc");
-                i.id = item.objectForKey("iid").toInt();
-                i.imageName = item.objectForKey("igroup");
-                i.cost = NSString(string: item.objectForKey("icost")).doubleValue
-                i.info = item.objectForKey("ifdesc");
+                menuItem.name = item.objectForKey("idesc");
+                menuItem.id = item.objectForKey("iid").toInt();
+                menuItem.imageName = item.objectForKey("igroup");
+                menuItem.cost = NSString(string: item.objectForKey("icost")).doubleValue
+                menuItem.info = item.objectForKey("ifdesc");
                 
                 // get condiments for each item
                 var condimentStr = item.objectForKey("icond")
                 if (condimentStr != nil) {
                     var cstr = condimentStr as NSString
+                    var length = cstr.length
+                    
+                    for (var i = 0; i < length; i += 2) {
+                        var str = cstr.substringWithRange(NSMakeRange(i, 2)).lowercaseString
+                        
+                        var condimentGroup = self.allCondiments[str];
+                        if (condimentGroup != nil) {
+                            menuItem.condimentGroups.append(condimentGroup!)
+                        }
+                    }
+                    
                 }
                 
                 
-                st.items.append(i);
+                st.items.append(menuItem);
             }
             self.stations.append(st);
             

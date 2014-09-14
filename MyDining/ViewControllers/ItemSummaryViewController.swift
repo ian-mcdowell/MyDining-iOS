@@ -20,6 +20,7 @@ class ItemSummaryViewController: UITableViewController {
     @IBOutlet var itemCost: UILabel!
     @IBOutlet var studentsName: UITextField!
     @IBOutlet var specialRequests: UITextField!
+    @IBOutlet var condimentDetailView: UILabel!
     
     override func viewDidLoad() {
         
@@ -91,6 +92,15 @@ class ItemSummaryViewController: UITableViewController {
         })
         }
     }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if (indexPath.item == 1) {
+            if (self.order.item.condimentGroups.count > 0) {
+                return indexPath
+            }
+        }
+        return nil
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -127,14 +137,16 @@ class ItemSummaryViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "editCondiments") {
+            var destinationViewController = segue.destinationViewController as CondimentsPickerViewController
+            destinationViewController.condimentGroups = self.order.item.condimentGroups
+        }
     }
-    */
+    
 
 }

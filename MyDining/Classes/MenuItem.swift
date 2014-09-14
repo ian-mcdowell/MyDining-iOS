@@ -15,6 +15,6 @@ class MenuItem: NSObject {
     var imageName: String!
     var cost: Double!
     var info: String!
-    var condimentGroups: Array<CondimentGroup>?
+    var condimentGroups = Array<CondimentGroup>()
     
 }

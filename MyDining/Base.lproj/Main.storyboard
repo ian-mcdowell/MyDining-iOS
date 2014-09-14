@@ -530,6 +530,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="condimentDetailView" destination="tvG-gO-Uh3" id="YSu-fH-J7R"/>
                         <outlet property="imageView" destination="De3-vA-Ame" id="AIe-f3-W38"/>
                         <outlet property="itemCost" destination="1vS-ed-9dW" id="2Zr-Pv-fIO"/>
                         <outlet property="itemInfo" destination="2SZ-1F-pe3" id="Dr3-ra-YGP"/>
