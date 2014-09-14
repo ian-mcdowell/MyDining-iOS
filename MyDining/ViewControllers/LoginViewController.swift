@@ -78,6 +78,7 @@ class LoginViewController: UIViewController {
             var account = Account();
             account.email = username;
             account.authID = (data! as NSString).stringByReplacingOccurrencesOfString("190|OK|", withString: "");
+            appDelegate.account = account;
             
             // hide the keyboard
             self.emailBox.resignFirstResponder()

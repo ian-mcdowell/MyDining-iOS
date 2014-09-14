@@ -42,12 +42,18 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
             alert.show();
             return;
         }
-        var loginNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController") as UINavigationController;
-        var loginViewController = loginNavController.viewControllers.first as LoginViewController
+        if (self.appDelegate.account == nil) {
+            // display login
+            var loginNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController") as UINavigationController;
+            var loginViewController = loginNavController.viewControllers.first as LoginViewController
         
-        loginViewController.delegate = self
+            loginViewController.delegate = self
         
-        self.navigationController!.presentViewController(loginNavController, animated: true, completion: nil);
+            self.navigationController!.presentViewController(loginNavController, animated: true, completion: nil);
+        } else {
+            // go to checkout page
+            self.performSegueWithIdentifier("checkOut", sender: self)
+        }
     }
     
     func loginCancelled() {
@@ -56,6 +62,9 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
     
     func loginComplete() {
         NSLog("Login complete")
+        
+        // go to checkout page
+        self.performSegueWithIdentifier("checkOut", sender: self)
     }
 
     // MARK: - Table view data source

@@ -154,6 +154,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="j6R-67-ism" kind="show" identifier="checkOut" id="Twn-cf-mPy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJ9-gz-YaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,6 +234,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jl-un-qcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2911" y="-961"/>
+        </scene>
+        <!--Checkout-->
+        <scene sceneID="VZ7-l5-g0c">
+            <objects>
+                <viewController id="j6R-67-ism" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TrC-TC-ywp"/>
+                        <viewControllerLayoutGuide type="bottom" id="9LG-e3-KyJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WNX-am-6Nm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Checkout" id="7eL-RA-xit">
+                        <barButtonItem key="rightBarButtonItem" title="Complete" id="cND-vd-vMt"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwt-7s-7ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2852" y="-301"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="nkU-CN-pIh">
