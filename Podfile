@@ -4,7 +4,7 @@
 target "MyDining" do
 
 pod 'hpple'
-
+pod 'UIScrollSlidingPages'
 end
 
 target "MyDiningTests" do
