@@ -6,6 +6,12 @@
 // project.
 
 
+// UIScrollSlidingPages
+#define COCOAPODS_POD_AVAILABLE_UIScrollSlidingPages
+#define COCOAPODS_VERSION_MAJOR_UIScrollSlidingPages 1
+#define COCOAPODS_VERSION_MINOR_UIScrollSlidingPages 3
+#define COCOAPODS_VERSION_PATCH_UIScrollSlidingPages 0
+
 // hpple
 #define COCOAPODS_POD_AVAILABLE_hpple
 #define COCOAPODS_VERSION_MAJOR_hpple 0
