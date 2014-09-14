@@ -165,7 +165,7 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
         
         Networking.post(url, data: params) { (data, error) -> Void in
             if (error != nil) {
-                NSLog("Error loading available dates: \(error?.localizedDescription)")
+                NSLog("Error loading payment methods: \(error?.localizedDescription)")
                 return
             }
             if (data!.rangeOfString("380|OK|") == nil) {
