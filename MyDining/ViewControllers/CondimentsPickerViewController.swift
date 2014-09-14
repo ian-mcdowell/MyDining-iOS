@@ -33,22 +33,30 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
     
     
     func numberOfPagesForSlidingPagesViewController(source: TTScrollSlidingPagesController!) -> Int32 {
-        return 3
+        return Int32(self.condimentGroups.count)
     }
     
     func pageForSlidingPagesViewController(source: TTScrollSlidingPagesController!, atIndex index: Int32) -> TTSlidingPage! {
         var tableViewController = UITableViewController()
+        
+        tableViewController.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
         tableViewController.tableView.delegate = self
         tableViewController.tableView.dataSource = self
         tableViewController.tableView.tag = Int(index);
+        tableViewController.tableView.allowsMultipleSelection = true;
         
-        return TTSlidingPage(contentViewController: tableViewController);
+        var slidingPage = TTSlidingPage(contentViewController: tableViewController);
+        
+        tableViewController.tableView.frame = slidingPage.contentView.frame
+        
+        return slidingPage;
         //UIViewController *viewController = [[UIViewController alloc] init];
         //return [[TTSlidingPage alloc] initWithContentViewController:viewController];
     }
     
     func titleForSlidingPagesViewController(source: TTScrollSlidingPagesController!, atIndex index: Int32) -> TTSlidingPageTitle! {
-        var title = TTSlidingPageTitle(headerText: "Page");
+        var condimentGroup = self.condimentGroups[Int(index)]
+        var title = TTSlidingPageTitle(headerText: condimentGroup.name);
         return title;
         
         
@@ -69,6 +77,8 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
         var group = tableView.tag
         var condiment = self.condimentGroups[group].condiments[indexPath.item]
         
+        cell.textLabel!.text = condiment.name
+        
         return cell;
     }
     
@@ -79,6 +89,14 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var group = tableView.tag
         return self.condimentGroups[group].condiments.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.cellForRowAtIndexPath(indexPath)!.accessoryType = UITableViewCellAccessoryType.Checkmark
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.cellForRowAtIndexPath(indexPath)!.accessoryType = UITableViewCellAccessoryType.None
     }
 
     /*

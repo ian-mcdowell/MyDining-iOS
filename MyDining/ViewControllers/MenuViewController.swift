@@ -83,6 +83,7 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
                 if let cost = cond.objectForKey("ccost"){
                     j.cost = NSString(string: cost).doubleValue
                 }
+                i.condiments.append(j)
             }
             self.allCondiments[i.id] = i
             

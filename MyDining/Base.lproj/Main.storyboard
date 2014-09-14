@@ -474,7 +474,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="g4U-5z-XDX" kind="show" id="ybq-8E-nKG"/>
+                                            <segue destination="g4U-5z-XDX" kind="show" identifier="editCondiments" id="ybq-8E-nKG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="cYw-YR-VpQ">
