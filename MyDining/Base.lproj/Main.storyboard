@@ -220,6 +220,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="c3u-ng-VJi" id="CBb-ph-HdF"/>
+                        <outlet property="totalValue" destination="ciT-ah-jEV" id="Yt1-gF-WYc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maf-CJ-aUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

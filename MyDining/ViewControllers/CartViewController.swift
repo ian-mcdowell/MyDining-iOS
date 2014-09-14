@@ -14,6 +14,7 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
     var cart: Cart!
     var appDelegate: AppDelegate!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var totalValue: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         
+        updateTotal()
         self.editButtonItem()
     }
 
@@ -108,6 +110,21 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
         return cell
     }
     
+    func total() -> Double! {
+        var sum = 0.0
+        var items = self.cart.items
+        
+        for item in items {
+            sum += item.item.cost
+        }
+        return sum
+    }
+    
+    func updateTotal(){
+        self.totalValue.text = NSString(format: "Price: $%.02f",self.total())
+
+    }
+    
 
 
     /*
@@ -126,7 +143,8 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        updateTotal()
     }
     
 
