@@ -11,13 +11,15 @@ import Alamofire
 
 let reuseIdentifier = "cell"
 
+
 class MenuViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var stations: Array<MenuStation>!
     var allCondiments: Dictionary<String, CondimentGroup>!
     var location: Location!
     var appDelegate: AppDelegate!
-
+    @IBOutlet var alocation: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

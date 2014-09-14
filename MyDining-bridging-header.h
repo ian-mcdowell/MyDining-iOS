@@ -11,5 +11,7 @@
 
 #import "TFHpple.h"
 #import "TTUIScrollViewSlidingPages.h"
+#import "VPRubberCell.h"
+#import "VPRubberLayout.h"
 
 #endif

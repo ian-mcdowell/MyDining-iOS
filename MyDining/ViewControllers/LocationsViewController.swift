@@ -9,15 +9,15 @@
 import UIKit
 import Alamofire
 
-class LocationsViewController: UITableViewController {
+class LocationsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet var collectionView: UICollectionView!
     var locations: Array<Location>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.locations = Array<Location>();
-
         
         self.loadLocations()
 
@@ -90,23 +90,23 @@ class LocationsViewController: UITableViewController {
             self.locations.append(loc);
         }
         
-        self.tableView.reloadData()
+        self.collectionView.reloadData()
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.locations.count
-    }
-
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as LocationCell
+/*- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+return itemSet.count;
+}
 
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+VPRubberCell *otherCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+[otherCell setBackgroundColor:[self colorForIndexPath:indexPath]];
+[otherCell.iconView setImage:[itemSet objectAtIndex:indexPath.row]];
+return otherCell;
+}*/
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as LocationCell
+        
         var location = self.locations[indexPath.item];
         
         cell.locationName.text = location.name
@@ -119,22 +119,45 @@ class LocationsViewController: UITableViewController {
             cell.address1.textColor = UIColor.lightGrayColor()
             cell.address2.textColor = UIColor.lightGrayColor()
         } else {
-            cell.backgroundColor = UIColor.whiteColor()
-            cell.locationName.textColor = UIColor.blackColor();
-            cell.address1.textColor = UIColor.blackColor()
-            cell.address2.textColor = UIColor.blackColor()
+            cell.backgroundColor = self.colorForCollectionViewIndexPath(indexPath)
+            cell.locationName.textColor = UIColor.whiteColor();
+            cell.address1.textColor = UIColor.whiteColor()
+            cell.address2.textColor = UIColor.whiteColor()
         }
-
+        
         return cell
     }
     
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        var location = self.locations[indexPath.item];
-        if (location.active == true) {
-            return indexPath
-        }
-        return nil;
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
     }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.locations.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        var location = self.locations[indexPath.item]
+        return location.active
+    }
+    
+    func colorForCollectionViewIndexPath(indexPath: NSIndexPath) -> UIColor! {
+        var totalItems = self.locations.count
+        var color = CGFloat((200/totalItems)*indexPath.item)
+        var g = (((200/totalItems)*indexPath.item)/totalItems)*indexPath.item-40
+        if (g<0){
+            g = 0
+        }
+        var b = CGFloat(g)
+        
+        
+        return UIColor(red: (180-color)/255, green: b/255, blue: b/255, alpha: 1.0)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(self.collectionView.frame.size.width, 300)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -180,7 +203,7 @@ class LocationsViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "showMenu") {
             var destinationViewController = segue.destinationViewController as MenuViewController
-            destinationViewController.location = self.locations[self.tableView.indexPathForSelectedRow()!.item]
+            destinationViewController.location = self.locations[self.collectionView.indexPathsForSelectedItems().first!.item]
         }
     }
     
