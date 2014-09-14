@@ -13,8 +13,8 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var timePicker: UIDatePicker!
     
-    var uniqueID = (UIApplication.sharedApplication().delegate as AppDelegate).configuration["ouniq"];
-    var auth = (UIApplication.sharedApplication().delegate as AppDelegate).account!.authID
+    var uniqueID: String!
+    var auth: String!
     var loadedDate: NSDate?
     var totalPrice: String?
     var paymentMethods = Array<PaymentMethod>()
@@ -24,6 +24,9 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         
         self.pickerView.delegate = self;
+        
+        self.uniqueID = (UIApplication.sharedApplication().delegate as AppDelegate).configuration["ouniq"];
+        self.auth = (UIApplication.sharedApplication().delegate as AppDelegate).account!.authID
         
         self.loadAvailableDates()
         
