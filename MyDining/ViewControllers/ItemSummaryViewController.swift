@@ -46,12 +46,21 @@ class ItemSummaryViewController: UITableViewController {
     }
     
     @IBAction func addToCart(sender: AnyObject) {
+        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        if (appDelegate.cart.location != nil && (appDelegate.cart.location!.id != order.location.id)) {
+            var alert = UIAlertView(title: "Woops!", message: "You can only add items to the cart from the same location.", delegate: self, cancelButtonTitle: "Oh gotcha.");
+            alert.show();
+            return;
+        }
+        
         // add info user enterred
         self.order.name = self.studentsName.text;
         self.order.specialRequests = self.specialRequests.text;
         
-        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
         appDelegate.cart.items.append(self.order);
+        appDelegate.cart.location = order.location
         
         self.cancel(sender);
     }

@@ -22,6 +22,7 @@
 		3CEE5FBB19C4F2B1006CD0F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */; };
 		3CEE5FBE19C4FE14006CD0F7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FBD19C4FE14006CD0F7 /* Networking.swift */; };
 		3CEE5FC119C50C0B006CD0F7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FC019C50C0B006CD0F7 /* Account.swift */; };
+		3CEE5FC319C5157B006CD0F7 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3519C4BAE5005725FD /* CartItemCell.swift */; };
 		59231E3019C4B70B005725FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59231E2E19C4B70B005725FD /* Main.storyboard */; };
 		59231E3219C4B8B1005725FD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3119C4B8B1005725FD /* CartViewController.swift */; };
 		59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */; };
