@@ -19,6 +19,8 @@
 		3C96954019C3E5BE0061A02F /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C96953F19C3E5BE0061A02F /* libxml2.2.dylib */; };
 		3CB7467819C3E2DA0082032C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7467719C3E2DA0082032C /* Location.swift */; };
 		3CEE5FBB19C4F2B1006CD0F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */; };
+		3CEE5FBE19C4FE14006CD0F7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FBD19C4FE14006CD0F7 /* Networking.swift */; };
+		3CEE5FC119C50C0B006CD0F7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FC019C50C0B006CD0F7 /* Account.swift */; };
 		59231E3019C4B70B005725FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59231E2E19C4B70B005725FD /* Main.storyboard */; };
 		59231E3219C4B8B1005725FD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3119C4B8B1005725FD /* CartViewController.swift */; };
 		59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */; };
@@ -107,6 +109,8 @@
 		3C96953F19C3E5BE0061A02F /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3CB7467719C3E2DA0082032C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Classes/Location.swift; sourceTree = "<group>"; };
 		3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
+		3CEE5FBD19C4FE14006CD0F7 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		3CEE5FC019C50C0B006CD0F7 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Classes/Account.swift; sourceTree = "<group>"; };
 		59231E2F19C4B70B005725FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59231E3119C4B8B1005725FD /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartViewController.swift; path = ViewControllers/CartViewController.swift; sourceTree = "<group>"; };
 		59231E3519C4BAE5005725FD /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartItem.swift; path = Views/CartItem.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				3C5D778F19C3DD4400C02776 /* Supporting Files */,
 				59708B6919C41E7D00CAF7C9 /* config.json */,
 				59708B6D19C41EAD00CAF7C9 /* Utils.swift */,
+				3CEE5FBD19C4FE14006CD0F7 /* Networking.swift */,
 			);
 			path = MyDining;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				3C09672919C4BC1800F31766 /* Order.swift */,
 				3C09672B19C4BC4900F31766 /* Condiment.swift */,
 				5991352E19C4E21900D47974 /* CondimentGroup.swift */,
+				3CEE5FC019C50C0B006CD0F7 /* Account.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -319,11 +325,11 @@
 				TargetAttributes = {
 					3C5D778B19C3DD4400C02776 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 3G5EGFL6JB;
+						DevelopmentTeam = A8DZBD3K9C;
 					};
 					3C5D77A019C3DD4500C02776 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 3G5EGFL6JB;
+						DevelopmentTeam = A8DZBD3K9C;
 						TestTargetID = 3C5D778B19C3DD4400C02776;
 					};
 				};
@@ -429,10 +435,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CEE5FBE19C4FE14006CD0F7 /* Networking.swift in Sources */,
 				3CEE5FBB19C4F2B1006CD0F7 /* LoginViewController.swift in Sources */,
 				3C5D779419C3DD4400C02776 /* ViewController.swift in Sources */,
 				59708B5F19C3FDA400CAF7C9 /* MenuViewController.swift in Sources */,
 				59708B4D19C3F43000CAF7C9 /* LocationCell.swift in Sources */,
+				3CEE5FC119C50C0B006CD0F7 /* Account.swift in Sources */,
 				3C09672819C4BBD300F31766 /* Cart.swift in Sources */,
 				3CB7467819C3E2DA0082032C /* Location.swift in Sources */,
 				59708B6219C4066900CAF7C9 /* MenuStation.swift in Sources */,

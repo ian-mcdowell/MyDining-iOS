@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var configuration: Dictionary<String, String>!
     var cart: Cart!
+    var dx = Utils.generateDX();
+    var account: Account?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.configuration = Dictionary<String, String>()

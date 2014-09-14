@@ -21,4 +21,8 @@ class Utils {
         var json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as Dictionary<String, AnyObject>;
         return json
     }
+    
+    class func generateDX() -> Int {
+        return Int(((1 + (arc4random()%2)) * 100000000)) + Int((arc4random() % 100000000))
+    }
 }
