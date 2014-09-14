@@ -11,8 +11,7 @@ import UIKit
 class LocationCell: VPRubberCell {
     
     @IBOutlet var locationName: UILabel!
-    @IBOutlet var address1: UILabel!
-    @IBOutlet var address2: UILabel!
+    @IBOutlet var locationHours: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

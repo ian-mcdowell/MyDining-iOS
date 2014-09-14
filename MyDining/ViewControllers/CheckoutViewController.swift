@@ -33,6 +33,11 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func processOrder(sender: AnyObject){
+        self.performSegueWithIdentifier("orderComplete", sender: self)
+
+    }
+    
     // MARK : Loading shit
     func loadAvailableDates() {
         var uniqueID = (UIApplication.sharedApplication().delegate as AppDelegate).configuration["ouniq"];

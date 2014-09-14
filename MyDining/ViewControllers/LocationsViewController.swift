@@ -110,19 +110,16 @@ return otherCell;
         var location = self.locations[indexPath.item];
         
         cell.locationName.text = location.name
-        cell.address1.text = location.addr1
-        cell.address2.text = location.addr2
+        //cell.locationHours.text =
         
         if (location.active == false) {
             cell.backgroundColor = UIColor(white: 0.95, alpha: 1.0);
             cell.locationName.textColor = UIColor.lightGrayColor()
-            cell.address1.textColor = UIColor.lightGrayColor()
-            cell.address2.textColor = UIColor.lightGrayColor()
+            cell.locationHours.textColor = UIColor.lightGrayColor()
         } else {
             cell.backgroundColor = self.colorForCollectionViewIndexPath(indexPath)
             cell.locationName.textColor = UIColor.whiteColor();
-            cell.address1.textColor = UIColor.whiteColor()
-            cell.address2.textColor = UIColor.whiteColor()
+            cell.locationHours.textColor = UIColor.whiteColor();
         }
         
         return cell
@@ -155,7 +152,7 @@ return otherCell;
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(self.collectionView.frame.size.width, 300)
+        return CGSizeMake(self.collectionView.frame.size.width, 220)
     }
     
 
