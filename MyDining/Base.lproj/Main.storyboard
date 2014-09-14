@@ -512,7 +512,7 @@
         <!--Order Processed Controller-->
         <scene sceneID="W9r-0y-l44">
             <objects>
-                <viewController storyboardIdentifier="OrderProcessedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QMg-9B-s3u" customClass="OrderProcessedController" customModule="MyDining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="QMg-9B-s3u" customClass="OrderProcessedController" customModule="MyDining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JEM-UP-UrX"/>
                         <viewControllerLayoutGuide type="bottom" id="Ge7-e5-hw6"/>
@@ -521,39 +521,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your order has been completed!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-pc-4J3">
-                                <rect key="frame" x="177" y="115" width="246" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order has been completed!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-pc-4J3">
+                                <rect key="frame" x="178" y="115" width="244" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Order Details:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSg-XM-2KJ">
-                                <rect key="frame" x="247" y="152" width="106" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Details:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSg-XM-2KJ">
+                                <rect key="frame" x="248" y="151" width="105" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pickup Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZx-A8-lHr">
-                                <rect key="frame" x="253" y="236" width="95" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZx-A8-lHr">
+                                <rect key="frame" x="253" y="233" width="95" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Processing Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMc-QZ-Pst">
-                                <rect key="frame" x="224" y="278" width="152" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Processing Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMc-QZ-Pst">
+                                <rect key="frame" x="225" y="274" width="151" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pickup Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1md-Pa-QGP">
-                                <rect key="frame" x="239" y="195" width="123" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1md-Pa-QGP">
+                                <rect key="frame" x="16" y="193" width="568" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.52353203256839786" blue="0.17830370633109671" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.80793563180000005" green="0.057045571810000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="1md-Pa-QGP" firstAttribute="leading" secondItem="dQo-Dn-xDN" secondAttribute="leading" constant="16" id="0Ym-hN-ltf"/>
                             <constraint firstAttribute="centerX" secondItem="XSg-XM-2KJ" secondAttribute="centerX" id="95G-op-hSU"/>
                             <constraint firstItem="XSg-XM-2KJ" firstAttribute="top" secondItem="vuV-pc-4J3" secondAttribute="bottom" constant="16" id="ObF-ub-2pB"/>
                             <constraint firstAttribute="centerX" secondItem="rZx-A8-lHr" secondAttribute="centerX" constant="-0.5" id="VQ1-XO-XKk"/>
@@ -562,10 +563,12 @@
                             <constraint firstItem="pMc-QZ-Pst" firstAttribute="top" secondItem="rZx-A8-lHr" secondAttribute="bottom" constant="21" id="ZdG-rZ-deV"/>
                             <constraint firstAttribute="centerX" secondItem="pMc-QZ-Pst" secondAttribute="centerX" id="arQ-Dm-sIM"/>
                             <constraint firstItem="rZx-A8-lHr" firstAttribute="top" secondItem="1md-Pa-QGP" secondAttribute="bottom" constant="20" id="b7m-zl-yWc"/>
+                            <constraint firstAttribute="trailing" secondItem="1md-Pa-QGP" secondAttribute="trailing" constant="16" id="mGx-c6-W0l"/>
                             <constraint firstItem="vuV-pc-4J3" firstAttribute="top" secondItem="JEM-UP-UrX" secondAttribute="bottom" constant="51" id="nab-zl-fcG"/>
                             <constraint firstItem="1md-Pa-QGP" firstAttribute="top" secondItem="XSg-XM-2KJ" secondAttribute="bottom" constant="22" id="nfV-6n-xu7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="voV-Pb-HBj"/>
                     <connections>
                         <outlet property="location" destination="1md-Pa-QGP" id="5x8-7I-Mny"/>
                         <outlet property="pickupTime" destination="rZx-A8-lHr" id="gRE-FS-Dnu"/>
@@ -574,7 +577,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bd5-Jc-63J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3769" y="-567"/>
+            <point key="canvasLocation" x="4238" y="-658"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Emu-QZ-3cQ">
+            <objects>
+                <navigationController storyboardIdentifier="OrderProcessedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vR5-38-hcL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MfY-jF-jjf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QMg-9B-s3u" kind="relationship" relationship="rootViewController" id="A13-Oc-wFu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RCe-DU-O4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3569" y="-658"/>
         </scene>
         <!--Order Details-->
         <scene sceneID="Hl2-Rh-P6Y">

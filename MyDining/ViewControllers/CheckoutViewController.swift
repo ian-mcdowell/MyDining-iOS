@@ -236,13 +236,14 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
     }
     
     func showOrderComplete(confirmationNumber: String, date: NSDate!, order: Order) {
-        var orderProcessedViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("OrderProcessedViewController") as OrderProcessedController
+        var orderProcessedNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("OrderProcessedViewController") as UINavigationController
+        var orderProcessedViewController = orderProcessedNavController.viewControllers.first as OrderProcessedController
         
         orderProcessedViewController.number = confirmationNumber
         orderProcessedViewController.time = date;
         orderProcessedViewController.pickupLocation = order.location.name
         
-        self.presentViewController(orderProcessedViewController, animated: false, completion: nil)
+        self.presentViewController(orderProcessedNavController, animated: false, completion: nil)
     }
     
     func showErrorLoading() {
