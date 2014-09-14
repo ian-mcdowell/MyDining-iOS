@@ -9,10 +9,12 @@
 import UIKit
 import Alamofire
 
-class CartViewController: UITableViewController, LoginViewControllerDelegate {
+class CartViewController: UIViewController, LoginViewControllerDelegate {
     
     var cart: Cart!
     var appDelegate: AppDelegate!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var totalValue: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         
+        updateTotal()
         self.editButtonItem()
     }
 
@@ -69,17 +72,17 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return cart.items.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cartCell", forIndexPath: indexPath) as CartItemCell
         
         var cartItem = self.cart.items[indexPath.item]
@@ -107,6 +110,21 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
         return cell
     }
     
+    func total() -> Double! {
+        var sum = 0.0
+        var items = self.cart.items
+        
+        for item in items {
+            sum += item.item.cost
+        }
+        return sum
+    }
+    
+    func updateTotal(){
+        self.totalValue.text = NSString(format: "Price: $%.02f",self.total())
+
+    }
+    
 
 
     /*
@@ -119,13 +137,14 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
 
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             self.cart.items.removeAtIndex(indexPath.item)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        updateTotal()
     }
     
 
