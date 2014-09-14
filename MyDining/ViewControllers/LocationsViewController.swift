@@ -13,6 +13,7 @@ class LocationsViewController: UIViewController, UICollectionViewDelegate, UICol
     
     @IBOutlet var collectionView: UICollectionView!
     var locations: Array<Location>!
+    var schedules = Dictionary<Int, Dictionary<Int, (NSDate, NSDate)>>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,42 @@ class LocationsViewController: UIViewController, UICollectionViewDelegate, UICol
             appDelegate.configuration[key] = val;
         }
         
+        // parse schedules
+        var schedulesElement = elements[2] as TFHppleElement
+        var schedulesItems = schedulesElement.childrenWithTagName("store") as Array<TFHppleElement>
+        
+        NSLog("There were \(schedulesItems) schedules found.");
+        
+        for store in schedulesItems {
+            var locationID = store.objectForKey("n").toInt()!
+            var times = Dictionary<Int, (NSDate, NSDate)>();
+            
+            var timeElements = store.childrenWithTagName("time") as Array<TFHppleElement>
+            for timeElement in timeElements {
+                var time = timeElement.objectForKey("t") as NSString
+                
+                var dayOfWeek = time.substringWithRange(NSMakeRange(0, 1)).toInt()!
+                var startTime = time.substringToIndex(5) as NSString
+                var endTime = time.substringFromIndex(5) as NSString
+                
+                var startComps = NSDateComponents()
+                startComps.day = (startTime.substringWithRange(NSMakeRange(0, 1)) as String).toInt()!
+                startComps.hour = (startTime.substringWithRange(NSMakeRange(1, 2)) as String).toInt()!
+                startComps.minute = (startTime.substringWithRange(NSMakeRange(3, 2)) as String).toInt()!
+                var startDate = NSCalendar.currentCalendar().dateFromComponents(startComps)!
+                
+                var endComps = NSDateComponents()
+                endComps.day = (endTime.substringWithRange(NSMakeRange(0, 1)) as String).toInt()!
+                endComps.hour = (endTime.substringWithRange(NSMakeRange(1, 2)) as String).toInt()!
+                endComps.minute = (endTime.substringWithRange(NSMakeRange(3, 2)) as String).toInt()!
+                var endDate = NSCalendar.currentCalendar().dateFromComponents(endComps)!
+                
+                times[dayOfWeek] = (startDate, endDate)
+            }
+
+            self.schedules[locationID] = times;
+        }
+        
         
         // find location element
         var locationElement: TFHppleElement = elements[1] as TFHppleElement
@@ -84,7 +121,7 @@ class LocationsViewController: UIViewController, UICollectionViewDelegate, UICol
             loc.id = location.objectForKey("snum").toInt()
             loc.addr1 = location.objectForKey("saddr")
             loc.addr2 = location.objectForKey("saddr2")
-            
+            loc.schedule = self.schedules[loc.id]
             loc.active = location.objectForKey("sact") == "1";
             
             self.locations.append(loc);
