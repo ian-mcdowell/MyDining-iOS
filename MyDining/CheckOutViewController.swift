@@ -8,14 +8,17 @@
 
 import UIKit
 
-class CheckOutViewController: UIViewController{
+class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var timePicker: UIDatePicker!
     
+    var payment = ["Candy", "food", "sleep"];
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.pickerView.delegate = self;
+        
         // Do any additional setup after loading the view.
     }
 
@@ -24,7 +27,19 @@ class CheckOutViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.payment.count;
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return self.payment[row];
+    }
+    
+    
 
     /*
     // MARK: - Navigation

@@ -162,7 +162,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="j6R-67-ism" kind="show" identifier="checkOut" id="Twn-cf-mPy"/>
+                        <segue destination="xv6-Ec-Ia3" kind="show" identifier="checkOut" id="Mxy-V8-arr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJ9-gz-YaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,65 +241,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jl-un-qcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2911" y="-961"/>
-        </scene>
-        <!--Checkout-->
-        <scene sceneID="VZ7-l5-g0c">
-            <objects>
-                <viewController id="j6R-67-ism" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TrC-TC-ywp"/>
-                        <viewControllerLayoutGuide type="bottom" id="9LG-e3-KyJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WNX-am-6Nm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGx-4k-c2r">
-                                <rect key="frame" x="0.0" y="96" width="600" height="467"/>
-                                <subviews>
-                                    <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zo1-Yf-Alq">
-                                        <rect key="frame" x="0.0" y="57" width="600" height="162"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="432352194.34745198">
-                                            <!--2014-09-14 01:49:54 +0000-->
-                                        </date>
-                                    </datePicker>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pickup Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HR1-jm-7dc">
-                                        <rect key="frame" x="8" y="8" width="584" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment Method:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbQ-51-gwM">
-                                        <rect key="frame" x="8" y="227" width="584" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULD-Rd-9nC">
-                                        <rect key="frame" x="0.0" y="276" width="600" height="162"/>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Zo1-Yf-Alq" secondAttribute="trailing" id="2Fv-VM-uU3"/>
-                                    <constraint firstItem="Zo1-Yf-Alq" firstAttribute="leading" secondItem="TGx-4k-c2r" secondAttribute="leadingMargin" constant="-8" id="uRD-nN-pGN"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="TGx-4k-c2r" firstAttribute="leading" secondItem="WNX-am-6Nm" secondAttribute="leading" id="OJQ-fB-Mh5"/>
-                            <constraint firstAttribute="trailing" secondItem="TGx-4k-c2r" secondAttribute="trailing" id="jea-dY-PPt"/>
-                            <constraint firstAttribute="centerYWithinMargins" secondItem="TGx-4k-c2r" secondAttribute="centerYWithinMargins" constant="-21" id="sqH-Ct-d1h"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Checkout" id="7eL-RA-xit">
-                        <barButtonItem key="rightBarButtonItem" title="Complete" id="cND-vd-vMt"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nwt-7s-7ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2852" y="-301"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="nkU-CN-pIh">
@@ -383,6 +324,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTL-VW-1eV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1759" y="362"/>
+        </scene>
+        <!--Checkout-->
+        <scene sceneID="iXv-Ga-u5X">
+            <objects>
+                <tableViewController id="xv6-Ec-Ia3" customClass="CheckOutViewController" customModule="MyDining" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Gmo-Is-RmW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Pickup Time" id="b2f-56-Wsj">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="BcE-j5-Chr">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BcE-j5-Chr" id="VAe-oq-m6j">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="zBM-iI-NaO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="432353948.58176202">
+                                                        <!--2014-09-14 02:19:08 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="zBM-iI-NaO" secondAttribute="trailing" id="7sY-a6-sj7"/>
+                                                <constraint firstItem="zBM-iI-NaO" firstAttribute="leading" secondItem="VAe-oq-m6j" secondAttribute="leading" id="Iph-f1-3Yj"/>
+                                                <constraint firstAttribute="bottom" secondItem="zBM-iI-NaO" secondAttribute="bottom" constant="-0.5" id="QVU-pR-vVU"/>
+                                                <constraint firstItem="zBM-iI-NaO" firstAttribute="top" secondItem="VAe-oq-m6j" secondAttribute="top" id="xVq-ay-BKy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Payment Method" id="sJC-d8-P8V">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="0wJ-lu-baI">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0wJ-lu-baI" id="MXL-nY-oB1">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98U-vr-bsx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="98U-vr-bsx" secondAttribute="bottom" constant="-0.5" id="Dsj-D6-tE2"/>
+                                                <constraint firstItem="98U-vr-bsx" firstAttribute="leading" secondItem="MXL-nY-oB1" secondAttribute="leading" id="OGV-Zk-fvt"/>
+                                                <constraint firstItem="98U-vr-bsx" firstAttribute="top" secondItem="MXL-nY-oB1" secondAttribute="top" id="gIa-nb-zwc"/>
+                                                <constraint firstAttribute="trailing" secondItem="98U-vr-bsx" secondAttribute="trailing" id="iev-Pa-LJI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="xv6-Ec-Ia3" id="909-tM-SIT"/>
+                            <outlet property="delegate" destination="xv6-Ec-Ia3" id="Yph-ds-fg2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Checkout" id="He0-Sz-YnB"/>
+                    <connections>
+                        <outlet property="pickerView" destination="98U-vr-bsx" id="ksX-Mw-GjH"/>
+                        <outlet property="timePicker" destination="zBM-iI-NaO" id="QHc-DZ-4rI"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hbu-2Y-BYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2831" y="-301"/>
         </scene>
         <!--Order Details-->
         <scene sceneID="Hl2-Rh-P6Y">
