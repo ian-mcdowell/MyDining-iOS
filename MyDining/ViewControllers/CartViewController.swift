@@ -37,6 +37,11 @@ class CartViewController: UITableViewController, LoginViewControllerDelegate {
     }
     
     @IBAction func checkOut(sender: AnyObject) {
+        if (self.cart.items.count == 0) {
+            var alert = UIAlertView(title: "Oh no!", message: "You have no items in your cart! Add some before you can check out.", delegate: self, cancelButtonTitle: "K.");
+            alert.show();
+            return;
+        }
         var loginNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController") as UINavigationController;
         var loginViewController = loginNavController.viewControllers.first as LoginViewController
         

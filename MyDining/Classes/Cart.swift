@@ -9,6 +9,6 @@
 import UIKit
 
 class Cart: NSObject {
-    var location: Location!
+    var location: Location?
     var items = Array<Order>()
 }
