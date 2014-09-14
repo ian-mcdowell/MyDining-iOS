@@ -64,6 +64,30 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
         // find root
         var elements = doc.searchWithXPathQuery("//menu")
         
+        // parse condiments
+        var condimentsElements: TFHppleElement = elements[1] as TFHppleElement
+        var condimentGroups = condimentsElements.childrenWithTagName("cc") as Array<TFHppleElement>
+        
+        for item in condimentGroups{
+            var i = CondimentGroup()
+            i.name = item.objectForKey("cond")
+            i.id = item.objectForKey("cclass")
+            i.min = item.objectForKey("cmin").toInt()
+            i.max = item.objectForKey("cdisp").toInt()
+            
+            var items = item.childrenWithTagName("cond") as Array<TFHppleElement>
+            for cond in items {
+                var j = Condiment()
+                j.name = cond.objectForKey("cname")
+                j.id = cond.objectForKey("cid").toInt()
+                if let cost = cond.objectForKey("ccost"){
+                    j.cost = NSString(string: cost).doubleValue
+                }
+            }
+            self.allCondiments[i.id] = i
+            
+        }
+        
         
         // find station element
         var stationElement: TFHppleElement = elements[0] as TFHppleElement
@@ -90,33 +114,13 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
                 i.cost = NSString(string: item.objectForKey("icost")).doubleValue
                 i.info = item.objectForKey("ifdesc");
                 
+                // get condiments for each item
+                var condimentStr = item.objectForKey("icond") as NSString
+                
+                
                 st.items.append(i);
             }
             self.stations.append(st);
-            
-            // parse condiments
-            var condimentsElements: TFHppleElement = elements[1] as TFHppleElement
-            var condimentGroups = condimentsElements.childrenWithTagName("cc") as Array<TFHppleElement>
-            
-            for item in condimentGroups{
-                var i = CondimentGroup()
-                i.name = item.objectForKey("cond")
-                i.id = item.objectForKey("cclass")
-                i.min = item.objectForKey("cmin").toInt()
-                i.max = item.objectForKey("cdisp").toInt()
-                
-                var items = item.childrenWithTagName("cond") as Array<TFHppleElement>
-                for cond in items {
-                    var j = Condiment()
-                    j.name = cond.objectForKey("cname")
-                    j.id = cond.objectForKey("cid").toInt()
-                    if let cost = cond.objectForKey("ccost"){
-                        j.cost = NSString(string: cost).doubleValue
-                    }
-                }
-                self.allCondiments[i.id] = i
-                
-            }
             
         }
         

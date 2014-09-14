@@ -25,6 +25,8 @@ class ItemSummaryViewController: UITableViewController {
         
         super.viewDidLoad()
         
+        self.clearsSelectionOnViewWillAppear = true
+        
         appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
         self.itemName.text = order.item.name
@@ -39,6 +41,12 @@ class ItemSummaryViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true)
     }
     
     @IBAction func cancel(sender: AnyObject) {
@@ -65,7 +73,7 @@ class ItemSummaryViewController: UITableViewController {
         self.cancel(sender);
     }
     
-    func loadImage(){
+    func loadImage() {
         
         var pre = appDelegate.configuration["uplImagePre"]!
         var url = "\(pre)\(self.order.item.imageName).png";
