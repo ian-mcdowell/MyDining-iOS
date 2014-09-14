@@ -13,11 +13,13 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var timePicker: UIDatePicker!
     
+    var uniqueID = (UIApplication.sharedApplication().delegate as AppDelegate).configuration["ouniq"];
+    var auth = (UIApplication.sharedApplication().delegate as AppDelegate).account!.authID
     var loadedDate: NSDate?
+    var totalPrice: String?
+    var paymentMethods = Array<PaymentMethod>()
     
     var cart: Cart!
-    
-    var payment = ["Candy", "food", "sleep"];
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,8 +37,6 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     // MARK : Loading shit
     func loadAvailableDates() {
-        var uniqueID = (UIApplication.sharedApplication().delegate as AppDelegate).configuration["ouniq"];
-        var auth = (UIApplication.sharedApplication().delegate as AppDelegate).account!.authID
         var item = cart.items[0]
         
         var url = "\(Utils.getBaseURL())/qp.dca?nmout=1&dx=12345678"
@@ -50,7 +50,7 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
                 self.showErrorLoading()
                 return;
             }
-            NSLog(data!)
+            // 410|OK|1|120140914
             var days = (data! as NSString).stringByReplacingOccurrencesOfString("410|OK|", withString: "");
             
             var daysArray = days.componentsSeparatedByString("|");
@@ -67,8 +67,6 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
     }
     
     func loadAvailableTimes() {
-        var uniqueID = (UIApplication.sharedApplication().delegate as AppDelegate).configuration["ouniq"];
-        var auth = (UIApplication.sharedApplication().delegate as AppDelegate).account!.authID
         var item = cart.items[0]
         
         var formatter = NSDateFormatter()
@@ -86,10 +84,13 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
                 self.showErrorLoading()
                 return;
             }
-            NSLog(data!)
+            // 420|OK|79|01615|01620|01625|01630|01635|01640|01645|01650|01655|01700|01705...
+            
             var times = (data! as NSString).stringByReplacingOccurrencesOfString("420|OK|", withString: "");
             
             var timesArray = times.componentsSeparatedByString("|");
+            
+            // parse start (minimum) date
             var firstTime = (timesArray[1] as NSString).substringFromIndex(1);
             
             var firstComps = NSCalendar.currentCalendar().components(NSCalendarUnit.DayCalendarUnit | NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit, fromDate: self.loadedDate!)
@@ -98,6 +99,8 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
             
             var startDate = NSCalendar.currentCalendar().dateFromComponents(firstComps)
             self.timePicker.minimumDate = startDate
+            
+            // parse end (maximum) date
             
             var lastTime = (timesArray[timesArray.count - 1] as NSString).substringFromIndex(1);
             
@@ -108,14 +111,76 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
             var endDate = NSCalendar.currentCalendar().dateFromComponents(lastComps)
             self.timePicker.maximumDate = endDate
             
-           // self.cart.items[0].date = day;
-            
-            self.loadPaymentMethods()
+            // do a price check on the order
+            self.loadPriceCheck();
         }
     }
     
-    func loadPaymentMethods() {
+    func loadPriceCheck() {
+        var item = cart.items[0]
         
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmm"
+        var dateTimeString = formatter.stringFromDate(self.timePicker.minimumDate!)
+        
+        var url = "\(Utils.getBaseURL())/qp.dca?nmout=1&dx=12345678"
+        var params = "oMenuLevelPriceCheck~\(uniqueID!)~\(auth)~\(item.location.id)~\(dateTimeString)~1~\(item.stringify())";
+        
+        Networking.post(url, data: params) { (data, error) -> Void in
+            if (error != nil) {
+                NSLog("Error loading price check: \(error?.localizedDescription)")
+                return
+            }
+            if (data!.rangeOfString("440|OK|") == nil) {
+                self.showErrorLoading()
+                return;
+            }
+            // 440|OK|1|1.00
+            var price = (data! as NSString).stringByReplacingOccurrencesOfString("440|OK|", withString: "");
+            self.totalPrice = price.componentsSeparatedByString("|")[1];
+            
+            NSLog("Order total: \(self.totalPrice)")
+            
+            // load the payment methods now!
+            self.loadPaymentMethods()
+        }
+        
+    }
+    
+    func loadPaymentMethods() {
+        var item = cart.items[0]
+        
+        var priceWithoutDot = (self.totalPrice! as NSString).stringByReplacingOccurrencesOfString(".", withString: "")
+        
+        var url = "\(Utils.getBaseURL())/qp.dca?nmout=1&dx=12345678"
+        var params = "sListPaymentMethods~\(uniqueID!)~\(auth)~\(item.location.id)~0~\(priceWithoutDot)";
+        
+        Networking.post(url, data: params) { (data, error) -> Void in
+            if (error != nil) {
+                NSLog("Error loading available dates: \(error?.localizedDescription)")
+                return
+            }
+            if (data!.rangeOfString("380|OK|") == nil) {
+                self.showErrorLoading()
+                return;
+            }
+            // 380|OK|4|31695|ISUCard|3|4|Yearly Meal Block|2961|0000|0|31694|ISUCard|3|4|Yearly Meal Block|2961|0000|0|31692|ISU|3|7|SemesterPlan|2961|0000|1|26702|ISU|3|7|SemesterPlan|2961|0000|1
+            var paymentMethodsString = (data! as NSString).stringByReplacingOccurrencesOfString("380|OK|", withString: "");
+            var paymentMethods = paymentMethodsString.componentsSeparatedByString("|");
+            
+            var numberOfPaymentMethods = (paymentMethods[0] as String).toInt()!
+            
+            for (var i = 0; i < numberOfPaymentMethods * 8; i += 8) {
+                var paymentMethod = PaymentMethod()
+                paymentMethod.id = (paymentMethods[i+1] as String).toInt()!
+                paymentMethod.name = paymentMethods[i+2]
+                paymentMethod.info = paymentMethods[i+5]
+                self.paymentMethods.append(paymentMethod);
+            }
+            
+            self.pickerView.reloadAllComponents()
+            
+        }
     }
     
     func showErrorLoading() {
@@ -125,7 +190,7 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.payment.count;
+        return self.paymentMethods.count;
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -133,7 +198,8 @@ class CheckOutViewController: UITableViewController, UIPickerViewDelegate, UIPic
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return self.payment[row];
+        var paymentMethod = self.paymentMethods[row]
+        return "\(paymentMethod.name) - \(paymentMethod.info)";
     }
     
     

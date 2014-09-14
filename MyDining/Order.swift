@@ -16,4 +16,12 @@ class Order: NSObject {
     var specialRequests: String!
     
     var orderDate: NSDate?
+    
+    func stringify() -> String {
+        var string = "\(item.id)#"
+        for condiment in condiments {
+            string += "\(condiment.id)#"
+        }
+        return string
+    }
 }
