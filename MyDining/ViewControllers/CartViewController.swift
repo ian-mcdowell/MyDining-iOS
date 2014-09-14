@@ -121,7 +121,7 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
     }
     
     func updateTotal(){
-        self.totalValue.text = NSString(format: "Price: $%.02f",self.total())
+        self.totalValue.text = NSString(format: "$%.02f",self.total())
 
     }
     

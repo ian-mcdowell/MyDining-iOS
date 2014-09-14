@@ -41,6 +41,7 @@
 		59708B6E19C41EAD00CAF7C9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B6D19C41EAD00CAF7C9 /* Utils.swift */; };
 		5991352F19C4E21900D47974 /* CondimentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991352E19C4E21900D47974 /* CondimentGroup.swift */; };
 		59C56F7519C49B2200E65BC0 /* MenuSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C56F7419C49B2200E65BC0 /* MenuSectionCell.swift */; };
+		59EAB56819C5A78300B30D4F /* OrderProcessedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EAB56719C5A78300B30D4F /* OrderProcessedController.swift */; };
 		EF837367A2C141C4AFBB284B /* libPods-MyDining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +148,7 @@
 		59708B6D19C41EAD00CAF7C9 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5991352E19C4E21900D47974 /* CondimentGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CondimentGroup.swift; path = Classes/CondimentGroup.swift; sourceTree = "<group>"; };
 		59C56F7419C49B2200E65BC0 /* MenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSectionCell.swift; path = Views/MenuSectionCell.swift; sourceTree = "<group>"; };
+		59EAB56719C5A78300B30D4F /* OrderProcessedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderProcessedController.swift; path = ViewControllers/OrderProcessedController.swift; sourceTree = "<group>"; };
 		E3041306BE1048CA875BEEA1 /* libPods-MyDining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyDining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */,
+				59EAB56719C5A78300B30D4F /* OrderProcessedController.swift */,
 				59708B5E19C3FDA400CAF7C9 /* MenuViewController.swift */,
 				59231E3119C4B8B1005725FD /* CartViewController.swift */,
 				3C09672F19C4D38800F31766 /* ItemSummaryViewController.swift */,
@@ -515,6 +518,7 @@
 				59231E3219C4B8B1005725FD /* CartViewController.swift in Sources */,
 				59708B6619C41A1900CAF7C9 /* MenuItemCell.swift in Sources */,
 				59708B6E19C41EAD00CAF7C9 /* Utils.swift in Sources */,
+				59EAB56819C5A78300B30D4F /* OrderProcessedController.swift in Sources */,
 				3C5D779219C3DD4400C02776 /* AppDelegate.swift in Sources */,
 				59C56F7519C49B2200E65BC0 /* MenuSectionCell.swift in Sources */,
 				59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */,

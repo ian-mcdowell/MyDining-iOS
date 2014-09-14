@@ -211,6 +211,7 @@ class MenuViewController: UITableViewController, UICollectionViewDataSource, UIC
         // Configure the cell
         cell.name.text = menuItem.name
         cell.image.image = nil;
+        cell.price.text = NSString(format: "$%.02f",menuItem.cost)
         
         var pre = appDelegate.configuration["uplImagePre"]!
         var url = "\(pre)\(menuItem.imageName).png";
