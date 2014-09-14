@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		293D0FEA19C51E6E00AC4E5A /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3519C4BAE5005725FD /* CartItemCell.swift */; };
+		293D0FED19C52F0A00AC4E5A /* CheckOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D0FEC19C52F0A00AC4E5A /* CheckOutViewController.swift */; };
 		3C09672819C4BBD300F31766 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09672719C4BBD300F31766 /* Cart.swift */; };
 		3C09672A19C4BC1800F31766 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09672919C4BC1800F31766 /* Order.swift */; };
 		3C09672C19C4BC4900F31766 /* Condiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09672B19C4BC4900F31766 /* Condiment.swift */; };
@@ -22,7 +23,6 @@
 		3CEE5FBB19C4F2B1006CD0F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */; };
 		3CEE5FBE19C4FE14006CD0F7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FBD19C4FE14006CD0F7 /* Networking.swift */; };
 		3CEE5FC119C50C0B006CD0F7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE5FC019C50C0B006CD0F7 /* Account.swift */; };
-		3CEE5FC319C5157B006CD0F7 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3519C4BAE5005725FD /* CartItemCell.swift */; };
 		59231E3019C4B70B005725FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59231E2E19C4B70B005725FD /* Main.storyboard */; };
 		59231E3219C4B8B1005725FD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59231E3119C4B8B1005725FD /* CartViewController.swift */; };
 		59708B3B19C3E97900CAF7C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59708B3A19C3E97900CAF7C9 /* LocationsViewController.swift */; };
@@ -93,6 +93,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		293D0FEC19C52F0A00AC4E5A /* CheckOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutViewController.swift; sourceTree = "<group>"; };
 		2FA3EBD921E141C483D98488 /* Pods-MyDining.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDining.xcconfig"; path = "Pods/Pods-MyDining.xcconfig"; sourceTree = "<group>"; };
 		3C09672719C4BBD300F31766 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cart.swift; path = Classes/Cart.swift; sourceTree = "<group>"; };
 		3C09672919C4BC1800F31766 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -260,6 +261,7 @@
 				59231E3119C4B8B1005725FD /* CartViewController.swift */,
 				3C09672F19C4D38800F31766 /* ItemSummaryViewController.swift */,
 				3CEE5FBA19C4F2B1006CD0F7 /* LoginViewController.swift */,
+				293D0FEC19C52F0A00AC4E5A /* CheckOutViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -437,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				293D0FED19C52F0A00AC4E5A /* CheckOutViewController.swift in Sources */,
 				293D0FEA19C51E6E00AC4E5A /* CartItemCell.swift in Sources */,
 				3CEE5FBE19C4FE14006CD0F7 /* Networking.swift in Sources */,
 				3CEE5FBB19C4F2B1006CD0F7 /* LoginViewController.swift in Sources */,
