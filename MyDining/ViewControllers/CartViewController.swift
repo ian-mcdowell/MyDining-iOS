@@ -141,6 +141,9 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
         if editingStyle == .Delete {
             self.cart.items.removeAtIndex(indexPath.item)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            if (self.cart.items.count == 0) {
+                self.cart.location = nil
+            }
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }

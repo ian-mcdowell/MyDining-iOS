@@ -13,7 +13,7 @@ class OrderProcessedController: UIViewController {
     @IBOutlet var processingNumber: UILabel!
     @IBOutlet var pickupTime: UILabel!
     @IBOutlet var location: UILabel!
-    var number: Double!
+    var number: String!
     var time: NSDate!
     var pickupLocation: String!
     

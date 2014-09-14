@@ -190,15 +190,11 @@ return otherCell;
     
     func colorForCollectionViewIndexPath(indexPath: NSIndexPath) -> UIColor! {
         var totalItems = self.locations.count
-        var color = CGFloat((200/totalItems)*indexPath.item)
-        var g = (((200/totalItems)*indexPath.item)/totalItems)*indexPath.item-40
-        if (g<0){
-            g = 0
-        }
-        var b = CGFloat(g)
+        var color = CGFloat((180/totalItems)*indexPath.item)
+        var g = CGFloat(0)
         
         
-        return UIColor(red: (180-color)/255, green: b/255, blue: b/255, alpha: 1.0)
+        return UIColor(red: (180-color)/255, green: g/255, blue: g/255, alpha: 1.0)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
