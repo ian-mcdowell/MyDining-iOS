@@ -20,8 +20,6 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
         slider.view.frame = self.view.frame
         self.view.addSubview(slider.view)
         self.addChildViewController(slider)
-        
-
 
         // Do any additional setup after loading the view.
     }
@@ -58,17 +56,6 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
         var condimentGroup = self.condimentGroups[Int(index)]
         var title = TTSlidingPageTitle(headerText: condimentGroup.name);
         return title;
-        
-        
-        /*TTSlidingPageTitle *title;
-        if (index == 0){ //for the first page, have an image, for all other pages use text
-        //use a image as the header for the first page
-        title= [[TTSlidingPageTitle alloc] initWithHeaderImage:[UIImage imageNamed:@"randomImage.png"]];
-        } else {
-        //all other pages just use a simple text header
-        title = [[TTSlidingPageTitle alloc] initWithHeaderText:@"A page"]; //in reality you would have the correct header text for your page number given by "index"
-        }
-        return title;*/
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -78,6 +65,12 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
         var condiment = self.condimentGroups[group].condiments[indexPath.item]
         
         cell.textLabel!.text = condiment.name
+        
+        if (condiment.selected) {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
         
         return cell;
     }
@@ -93,10 +86,52 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.cellForRowAtIndexPath(indexPath)!.accessoryType = UITableViewCellAccessoryType.Checkmark
+        
+        var group = tableView.tag
+        var condiment = self.condimentGroups[group].condiments[indexPath.item]
+        condiment.selected = true;
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.cellForRowAtIndexPath(indexPath)!.accessoryType = UITableViewCellAccessoryType.None
+        
+        var group = tableView.tag
+        var condiment = self.condimentGroups[group].condiments[indexPath.item]
+        condiment.selected = false;
+    }
+    
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        // check for min and max being satisfied in current viewcontroller before allowing
+        
+        var group = tableView.tag
+        var condimentGroup = self.condimentGroups[group]
+        
+        var i = 0;
+        for condiment in condimentGroup.condiments {
+            if condiment.selected {
+                i++;
+            }
+        }
+        if (i < condimentGroup.min || i >= condimentGroup.max) {
+            return nil
+        }
+        
+        return indexPath
+    }
+    
+    func checkAllSectionsForValidity() -> Bool {
+        for condimentGroup in self.condimentGroups {
+            var i = 0;
+            for condiment in condimentGroup.condiments {
+                if condiment.selected {
+                    i++;
+                }
+            }
+            if (i < condimentGroup.min || i >= condimentGroup.max) {
+                return false
+            }
+        }
+        return true
     }
 
     /*
