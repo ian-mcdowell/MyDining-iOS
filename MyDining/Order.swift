@@ -14,4 +14,6 @@ class Order: NSObject {
     var condiments = Array<Condiment>()
     var name: String!
     var specialRequests: String!
+    
+    var orderDate: NSDate?
 }

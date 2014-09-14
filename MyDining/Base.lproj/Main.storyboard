@@ -341,7 +341,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BcE-j5-Chr" id="VAe-oq-m6j">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="zBM-iI-NaO">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="zBM-iI-NaO">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="432353948.58176202">
                                                         <!--2014-09-14 02:19:08 +0000-->
