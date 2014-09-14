@@ -14,6 +14,7 @@ class Location: NSObject {
     var id: Int!
     var addr1: String!
     var addr2: String!
+    var schedule: Dictionary<Int, (NSDate, NSDate)>?
     
     var active: Bool!
    
