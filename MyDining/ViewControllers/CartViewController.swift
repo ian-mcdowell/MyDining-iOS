@@ -125,6 +125,7 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
 
     }
     
+    
 
 
     /*
@@ -148,6 +149,10 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
         updateTotal()
+    }
+    
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        return nil
     }
     
 
