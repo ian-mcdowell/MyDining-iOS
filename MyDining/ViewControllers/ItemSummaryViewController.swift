@@ -9,10 +9,11 @@
 import UIKit
 import Alamofire
 
-class ItemSummaryViewController: UITableViewController {
+class ItemSummaryViewController: UITableViewController, CondimentsPickerDelegate {
 
     var order: Order!
     var appDelegate: AppDelegate!
+    var valid = false;
     
     @IBOutlet var itemName: UILabel!
     @IBOutlet var imageView: UIImageView!
@@ -20,6 +21,7 @@ class ItemSummaryViewController: UITableViewController {
     @IBOutlet var itemCost: UILabel!
     @IBOutlet var studentsName: UITextField!
     @IBOutlet var specialRequests: UITextField!
+    @IBOutlet var condimentRowTitle: UILabel!
     @IBOutlet var condimentDetailView: UILabel!
     
     override func viewDidLoad() {
@@ -36,6 +38,15 @@ class ItemSummaryViewController: UITableViewController {
         
         self.imageView.image = nil;
         
+        if (self.order.item.condimentGroups.count == 0) {
+            self.condimentRowTitle.textColor = UIColor(white: 0.7, alpha: 1.0);
+            self.condimentDetailView.textColor = UIColor(white: 0.7, alpha: 1.0);
+            self.condimentDetailView.text = "None";
+            self.valid = true;
+        } else {
+            self.updateDetailView()
+        }
+        
         self.loadImage();
     }
 
@@ -50,11 +61,40 @@ class ItemSummaryViewController: UITableViewController {
         self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true)
     }
     
+    func setCondiments(condiments: Array<Condiment>, valid: Bool) {
+        self.order.condiments = condiments;
+        self.valid = valid;
+        self.updateDetailView()
+    }
+    
+    func updateDetailView() {
+        if (self.order.condiments.count > 0) {
+            var condimentsString = "";
+            for (var i = 0; i < self.order.condiments.count; i++) {
+                if (i != 0) {
+                    condimentsString += ", "
+                }
+                condimentsString += self.order.condiments[i].name
+            }
+            self.condimentDetailView.text = condimentsString
+            self.condimentDetailView.textColor = UIColor.lightGrayColor()
+        } else {
+            self.condimentDetailView.text = "None selected"
+            self.condimentDetailView.textColor = UIColor.redColor()
+        }
+    }
+    
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil);
     }
     
     @IBAction func addToCart(sender: AnyObject) {
+        if (!self.valid) {
+            var alert = UIAlertView(title: "Invalid order", message: "Make sure you have selected the correct options for your order.", delegate: self, cancelButtonTitle: "Okay")
+            alert.show();
+            return;
+        }
+        
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
         if (appDelegate.cart.location != nil && (appDelegate.cart.location!.id != order.location.id)) {
@@ -144,6 +184,7 @@ class ItemSummaryViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editCondiments") {
             var destinationViewController = segue.destinationViewController as CondimentsPickerViewController
+            destinationViewController.delegate = self;
             destinationViewController.condimentGroups = self.order.item.condimentGroups
         }
     }

@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol CondimentsPickerDelegate {
+    func setCondiments(condiments: Array<Condiment>, valid: Bool);
+}
+
 class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource, UITableViewDataSource, UITableViewDelegate {
     var condimentGroups: Array<CondimentGroup>!
+    
+    var delegate: CondimentsPickerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +34,11 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillDisappear(animated: Bool) {
+        NSLog("ViewWillDisappear")
+        delegate.setCondiments(self.getSelectedCondiments(), valid: self.checkAllSectionsForValidity());
+        super.viewWillDisappear(animated);
+    }
     
     func numberOfPagesForSlidingPagesViewController(source: TTScrollSlidingPagesController!) -> Int32 {
         return Int32(self.condimentGroups.count)
@@ -54,7 +64,7 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
     
     func titleForSlidingPagesViewController(source: TTScrollSlidingPagesController!, atIndex index: Int32) -> TTSlidingPageTitle! {
         var condimentGroup = self.condimentGroups[Int(index)]
-        var title = TTSlidingPageTitle(headerText: condimentGroup.name);
+        var title = TTSlidingPageTitle(headerText: "\(condimentGroup.name) (\(condimentGroup.min) - \(condimentGroup.max))");
         return title;
     }
     
@@ -85,7 +95,8 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)!.accessoryType = UITableViewCellAccessoryType.Checkmark
+        var cell = tableView.cellForRowAtIndexPath(indexPath)!
+        cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         
         var group = tableView.tag
         var condiment = self.condimentGroups[group].condiments[indexPath.item]
@@ -112,11 +123,23 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
                 i++;
             }
         }
-        if (i < condimentGroup.min || i >= condimentGroup.max) {
+        if (i >= condimentGroup.max) {
             return nil
         }
         
         return indexPath
+    }
+    
+    func getSelectedCondiments() -> Array<Condiment> {
+        var condiments = Array<Condiment>()
+        for condimentGroup in self.condimentGroups  {
+            for condiment in condimentGroup.condiments {
+                if condiment.selected {
+                    condiments.append(condiment);
+                }
+            }
+        }
+        return condiments;
     }
     
     func checkAllSectionsForValidity() -> Bool {
@@ -127,7 +150,7 @@ class CondimentsPickerViewController: UIViewController, TTSlidingPagesDataSource
                     i++;
                 }
             }
-            if (i < condimentGroup.min || i >= condimentGroup.max) {
+            if (i < condimentGroup.min || i > condimentGroup.max) {
                 return false
             }
         }
