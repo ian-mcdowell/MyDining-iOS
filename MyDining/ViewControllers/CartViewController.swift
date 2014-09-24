@@ -150,6 +150,10 @@ class CartViewController: UIViewController, LoginViewControllerDelegate {
         updateTotal()
     }
     
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        return nil
+    }
+    
 
     /*
     // Override to support rearranging the table view.

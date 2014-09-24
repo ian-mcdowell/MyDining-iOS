@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Locations-->
+        <!--Dining Locations-->
         <scene sceneID="LWk-cO-ECn">
             <objects>
                 <viewController id="RAe-ze-IOP" customClass="LocationsViewController" customModule="MyDining" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jMh-OB-ix3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.42813297193877553" green="0.0038597592353622817" blue="0.031757039837146013" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.42461222627737227" green="0.058823529411764705" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qnN-rr-wpE" customClass="VPRubberLayout">
                                     <size key="itemSize" width="320" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -78,7 +78,7 @@
                             <constraint firstAttribute="trailing" secondItem="jMh-OB-ix3" secondAttribute="trailing" id="bwA-l8-Ftf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Locations" id="kHt-zs-rfZ">
+                    <navigationItem key="navigationItem" title="Dining Locations" id="kHt-zs-rfZ">
                         <barButtonItem key="rightBarButtonItem" image="shopping_cart" id="waa-Vy-drf">
                             <connections>
                                 <segue destination="2OI-1U-S62" kind="presentation" identifier="showCart" id="bV3-Si-B7n"/>
@@ -282,7 +282,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.80793563180000005" green="0.057045571810000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.80784313730000001" green="0.058823529409999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Huj-kY-OIY" secondAttribute="trailing" constant="27" id="5Ey-uC-O6q"/>
                             <constraint firstAttribute="centerX" secondItem="LwT-0S-osA" secondAttribute="centerX" id="HzX-YA-DTz"/>
@@ -311,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jl-un-qcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2860" y="-1177"/>
+            <point key="canvasLocation" x="2852" y="-1201"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="nkU-CN-pIh">
@@ -554,7 +554,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.80793563180000005" green="0.057045571810000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.80784313725490198" green="0.058823529411764705" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1md-Pa-QGP" firstAttribute="leading" secondItem="dQo-Dn-xDN" secondAttribute="leading" constant="16" id="0Ym-hN-ltf"/>
                             <constraint firstAttribute="centerX" secondItem="XSg-XM-2KJ" secondAttribute="centerX" id="95G-op-hSU"/>
@@ -768,7 +768,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.80793563179347827" green="0.057045571808403459" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.80784313725490198" green="0.058823529411764705" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -788,7 +788,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.80793563180000005" green="0.057045571810000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.80784313725490198" green="0.058823529411764705" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -808,7 +808,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.80793563180000005" green="0.057045571810000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.80784313730000001" green="0.058823529409999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

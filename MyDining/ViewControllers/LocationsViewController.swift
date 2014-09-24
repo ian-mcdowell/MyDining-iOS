@@ -193,7 +193,6 @@ return otherCell;
         var color = CGFloat((180/totalItems)*indexPath.item)
         var g = CGFloat(0)
         
-        
         return UIColor(red: (180-color)/255, green: g/255, blue: g/255, alpha: 1.0)
     }
     
